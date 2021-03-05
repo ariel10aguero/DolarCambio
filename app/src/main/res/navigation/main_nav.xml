@@ -1,5 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/main_nav">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/homeFragment">
 
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.dolarcambio.ui.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_chooseFragment"
+            app:destination="@id/chooseFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_calculatorFragment"
+            app:destination="@id/calculatorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseFragment"
+        android:name="com.example.dolarcambio.ChooseFragment"
+        android:label="fragment_choose"
+        tools:layout="@layout/fragment_choose" >
+        <action
+            android:id="@+id/action_chooseFragment_to_buyFragment"
+            app:destination="@id/buyFragment" />
+        <action
+            android:id="@+id/action_chooseFragment_to_sellFragment"
+            app:destination="@id/sellFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/buyFragment"
+        android:name="com.example.dolarcambio.BuyFragment"
+        android:label="fragment_buy"
+        tools:layout="@layout/fragment_buy" >
+        <action
+            android:id="@+id/action_buyFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sellFragment"
+        android:name="com.example.dolarcambio.SellFragment"
+        android:label="fragment_sell"
+        tools:layout="@layout/fragment_sell" >
+        <action
+            android:id="@+id/action_sellFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/calculatorFragment"
+        android:name="com.example.dolarcambio.CalculatorFragment"
+        android:label="fragment_calculator"
+        tools:layout="@layout/fragment_calculator" />
 </navigation>

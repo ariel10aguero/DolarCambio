@@ -5,13 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.dolarcambio.R
-import com.example.dolarcambio.databinding.FragmentHomeBinding
+import com.example.dolarcambio.databinding.FragmentBuyBinding
+import com.example.dolarcambio.databinding.FragmentSellBinding
 
 
-class HomeFragment : Fragment() {
+class SellFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
+    private var _binding: FragmentSellBinding? = null
     private val binding get() = _binding!!
 
 
@@ -24,15 +24,13 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentSellBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.textView.text = "Test esta funcionando"
 
     }
 
