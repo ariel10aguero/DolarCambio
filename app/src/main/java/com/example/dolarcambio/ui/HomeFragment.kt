@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.navigation.fragment.findNavController
 import com.example.dolarcambio.R
 import com.example.dolarcambio.databinding.FragmentHomeBinding
 
@@ -32,8 +33,12 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setUpSpinner()
+
+        binding.floatingActionButton.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_chooseFragment)
+        }
+
     }
 
 

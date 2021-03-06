@@ -11,15 +11,16 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment_to_chooseFragment"
-            app:destination="@id/chooseFragment" />
-        <action
             android:id="@+id/action_homeFragment_to_calculatorFragment"
             app:destination="@id/calculatorFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_chooseFragment"
+            app:destination="@id/chooseFragment"
+            app:enterAnim="@android:anim/fade_in" />
     </fragment>
     <fragment
         android:id="@+id/chooseFragment"
-        android:name="com.example.dolarcambio.ChooseFragment"
+        android:name="com.example.dolarcambio.ui.ChooseFragment"
         android:label="fragment_choose"
         tools:layout="@layout/fragment_choose" >
         <action
@@ -31,7 +32,7 @@
     </fragment>
     <fragment
         android:id="@+id/buyFragment"
-        android:name="com.example.dolarcambio.BuyFragment"
+        android:name="com.example.dolarcambio.ui.BuyFragment"
         android:label="fragment_buy"
         tools:layout="@layout/fragment_buy" >
         <action
@@ -40,7 +41,7 @@
     </fragment>
     <fragment
         android:id="@+id/sellFragment"
-        android:name="com.example.dolarcambio.SellFragment"
+        android:name="com.example.dolarcambio.ui.BuyFragment"
         android:label="fragment_sell"
         tools:layout="@layout/fragment_sell" >
         <action
@@ -49,7 +50,7 @@
     </fragment>
     <fragment
         android:id="@+id/calculatorFragment"
-        android:name="com.example.dolarcambio.CalculatorFragment"
+        android:name="com.example.dolarcambio.ui.CalculatorFragment"
         android:label="fragment_calculator"
         tools:layout="@layout/fragment_calculator" />
 </navigation>
