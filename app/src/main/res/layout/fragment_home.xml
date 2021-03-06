@@ -172,14 +172,35 @@
         app:layout_constraintStart_toStartOf="parent" />
 
 
+    <TextView
+        android:id="@+id/transactionsTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:fontFamily="@font/interlight"
+        android:text="Transacciones "
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/white_corners" />
 
-
+    <Spinner
+        android:id="@+id/spinnerHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/transactionsTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/transactionsTxt" />
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent">
 
 
@@ -190,8 +211,8 @@
             android:backgroundTint="#272C91"
             android:clickable="true"
             android:contentDescription="TODO"
-            app:layout_anchor="@id/bottomAppBar"
-            android:src="@drawable/ic_add_home"/>
+            android:src="@drawable/ic_add_home"
+            app:layout_anchor="@id/bottomAppBar" />
 
 
         <com.google.android.material.bottomappbar.BottomAppBar
@@ -203,10 +224,7 @@
             android:gravity="bottom" />
 
 
-
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

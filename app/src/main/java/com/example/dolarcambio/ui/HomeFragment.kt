@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import com.example.dolarcambio.R
 import com.example.dolarcambio.databinding.FragmentHomeBinding
 
@@ -32,10 +33,22 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setUpSpinner()
+
+
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
+    fun setUpSpinner(){
+       val spinner = binding.spinnerHome
+       val spinnerAdapter = ArrayAdapter.createFromResource(requireContext(), R.array.transaction_type, R.layout.support_simple_spinner_dropdown_item)
+        spinnerAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
+        spinner.adapter = spinnerAdapter
+    }
+
 }
