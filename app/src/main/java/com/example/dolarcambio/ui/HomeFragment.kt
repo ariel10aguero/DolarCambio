@@ -34,8 +34,6 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setUpSpinner()
-
-
     }
 
 
@@ -46,7 +44,7 @@ class HomeFragment : Fragment() {
 
     fun setUpSpinner(){
        val spinner = binding.spinnerHome
-       val spinnerAdapter = ArrayAdapter.createFromResource(requireContext(), R.array.transaction_type, R.layout.support_simple_spinner_dropdown_item)
+       val spinnerAdapter = ArrayAdapter.createFromResource(requireContext(), R.array.transaction_type, R.layout.spinner_custom)
         spinnerAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
         spinner.adapter = spinnerAdapter
     }
