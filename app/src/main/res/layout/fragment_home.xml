@@ -27,7 +27,7 @@
 
 
     <TextView
-        android:id="@+id/dolarOficial_title"
+        android:id="@+id/dolarOficialTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -40,7 +40,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/doCompraNumber"
+        android:id="@+id/buyOficialNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -50,11 +50,11 @@
         android:text="$150,52"
         android:textColor="@color/white"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/dolarOficial_title"
-        app:layout_constraintTop_toBottomOf="@+id/dolarOficial_title" />
+        app:layout_constraintEnd_toEndOf="@+id/dolarOficialTitle"
+        app:layout_constraintTop_toBottomOf="@+id/dolarOficialTitle" />
 
     <TextView
-        android:id="@+id/doVentaNumber"
+        android:id="@+id/sellOficialNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="110dp"
@@ -63,11 +63,11 @@
         android:text="$158,48"
         android:textColor="@color/white"
         android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/doCompraNumber"
-        app:layout_constraintStart_toStartOf="@+id/dolarOficial_title" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/buyOficialNum"
+        app:layout_constraintStart_toStartOf="@+id/dolarOficialTitle" />
 
     <TextView
-        android:id="@+id/doCompraTxt"
+        android:id="@+id/compraOficial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
@@ -75,25 +75,25 @@
         android:text="COMPRA"
         android:textColor="@color/my_gray"
         android:textSize="9sp"
-        app:layout_constraintEnd_toEndOf="@+id/doCompraNumber"
-        app:layout_constraintStart_toStartOf="@+id/doCompraNumber"
-        app:layout_constraintTop_toBottomOf="@+id/doCompraNumber" />
+        app:layout_constraintEnd_toEndOf="@+id/buyOficialNum"
+        app:layout_constraintStart_toStartOf="@+id/buyOficialNum"
+        app:layout_constraintTop_toBottomOf="@+id/buyOficialNum" />
 
     <TextView
-        android:id="@+id/doVentaTxt"
+        android:id="@+id/ventaOficial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/intertmedium"
         android:text="VENTA"
         android:textColor="@color/my_gray"
         android:textSize="9sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/doCompraTxt"
-        app:layout_constraintEnd_toEndOf="@+id/doVentaNumber"
+        app:layout_constraintBaseline_toBaselineOf="@+id/compraOficial"
+        app:layout_constraintEnd_toEndOf="@+id/sellOficialNum"
         app:layout_constraintHorizontal_bias="0.58"
-        app:layout_constraintStart_toStartOf="@+id/doVentaNumber" />
+        app:layout_constraintStart_toStartOf="@+id/sellOficialNum" />
 
     <TextView
-        android:id="@+id/dolarBlue_title"
+        android:id="@+id/dolarBlueTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -101,13 +101,13 @@
         android:text="Dólar Blue"
         android:textColor="@color/white"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/dolarOficial_title"
-        app:layout_constraintStart_toStartOf="@+id/dolarOficial_title"
-        app:layout_constraintTop_toBottomOf="@+id/doCompraTxt" />
+        app:layout_constraintEnd_toEndOf="@+id/dolarOficialTitle"
+        app:layout_constraintStart_toStartOf="@+id/dolarOficialTitle"
+        app:layout_constraintTop_toBottomOf="@+id/compraOficial" />
 
 
     <TextView
-        android:id="@+id/doCompraNumber5"
+        android:id="@+id/buyBlueNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -115,24 +115,24 @@
         android:text="$150,52"
         android:textColor="@color/white"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/doCompraNumber"
-        app:layout_constraintTop_toBottomOf="@+id/dolarBlue_title" />
+        app:layout_constraintStart_toStartOf="@+id/buyOficialNum"
+        app:layout_constraintTop_toBottomOf="@+id/dolarBlueTitle" />
 
     <TextView
-        android:id="@+id/doVentaNumber5"
+        android:id="@+id/sellBlueNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/intertmedium"
         android:text="$158,48"
         android:textColor="@color/white"
         android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/doCompraNumber5"
-        app:layout_constraintEnd_toEndOf="@+id/doVentaNumber" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/buyBlueNum"
+        app:layout_constraintEnd_toEndOf="@+id/sellOficialNum" />
 
 
 
     <TextView
-        android:id="@+id/doCompraTxt6"
+        android:id="@+id/compraBlue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
@@ -140,25 +140,25 @@
         android:text="COMPRA"
         android:textColor="@color/my_gray"
         android:textSize="9sp"
-        app:layout_constraintEnd_toEndOf="@+id/doCompraTxt"
-        app:layout_constraintStart_toStartOf="@+id/doCompraTxt"
-        app:layout_constraintTop_toBottomOf="@+id/doCompraNumber5" />
+        app:layout_constraintEnd_toEndOf="@+id/compraOficial"
+        app:layout_constraintStart_toStartOf="@+id/compraOficial"
+        app:layout_constraintTop_toBottomOf="@+id/buyBlueNum" />
 
 
     <TextView
-        android:id="@+id/doVentaTxt5"
+        android:id="@+id/ventaBlue"
         android:layout_width="wrap_content"
         android:layout_height="15dp"
         android:fontFamily="@font/intertmedium"
         android:text="VENTA"
         android:textColor="@color/my_gray"
         android:textSize="9sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/doCompraTxt6"
-        app:layout_constraintEnd_toEndOf="@+id/doVentaTxt"
-        app:layout_constraintStart_toStartOf="@+id/doVentaTxt" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/compraBlue"
+        app:layout_constraintEnd_toEndOf="@+id/ventaOficial"
+        app:layout_constraintStart_toStartOf="@+id/ventaOficial" />
 
     <TextView
-        android:id="@+id/dateTxt"
+        android:id="@+id/dateLastUpdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
