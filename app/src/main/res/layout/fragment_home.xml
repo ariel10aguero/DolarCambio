@@ -6,15 +6,207 @@
     android:layout_height="match_parent"
     tools:context=".ui.HomeFragment">
 
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:text="TextView"
+    <View
+        android:id="@+id/blue_background"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@drawable/background_blue_home"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/white_corners"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:background="@drawable/background_white_corners"
+        app:layout_constraintBottom_toBottomOf="@+id/blue_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <TextView
+        android:id="@+id/dolarOficial_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/interlight"
+        android:text="Dólar Oficial"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/doCompraNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="110dp"
+        android:layout_marginRight="110dp"
+        android:fontFamily="@font/intertmedium"
+        android:text="$150,52"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/dolarOficial_title"
+        app:layout_constraintTop_toBottomOf="@+id/dolarOficial_title" />
+
+    <TextView
+        android:id="@+id/doVentaNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="110dp"
+        android:layout_marginLeft="110dp"
+        android:fontFamily="@font/intertmedium"
+        android:text="$158,48"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/doCompraNumber"
+        app:layout_constraintStart_toStartOf="@+id/dolarOficial_title" />
+
+    <TextView
+        android:id="@+id/doCompraTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:fontFamily="@font/intertmedium"
+        android:text="COMPRA"
+        android:textColor="@color/my_gray"
+        android:textSize="9sp"
+        app:layout_constraintEnd_toEndOf="@+id/doCompraNumber"
+        app:layout_constraintStart_toStartOf="@+id/doCompraNumber"
+        app:layout_constraintTop_toBottomOf="@+id/doCompraNumber" />
+
+    <TextView
+        android:id="@+id/doVentaTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/intertmedium"
+        android:text="VENTA"
+        android:textColor="@color/my_gray"
+        android:textSize="9sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/doCompraTxt"
+        app:layout_constraintEnd_toEndOf="@+id/doVentaNumber"
+        app:layout_constraintHorizontal_bias="0.58"
+        app:layout_constraintStart_toStartOf="@+id/doVentaNumber" />
+
+    <TextView
+        android:id="@+id/dolarBlue_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/interlight"
+        android:text="Dólar Blue"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/dolarOficial_title"
+        app:layout_constraintStart_toStartOf="@+id/dolarOficial_title"
+        app:layout_constraintTop_toBottomOf="@+id/doCompraTxt" />
+
+
+    <TextView
+        android:id="@+id/doCompraNumber5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/intertmedium"
+        android:text="$150,52"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/doCompraNumber"
+        app:layout_constraintTop_toBottomOf="@+id/dolarBlue_title" />
+
+    <TextView
+        android:id="@+id/doVentaNumber5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/intertmedium"
+        android:text="$158,48"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/doCompraNumber5"
+        app:layout_constraintEnd_toEndOf="@+id/doVentaNumber" />
+
+
+
+    <TextView
+        android:id="@+id/doCompraTxt6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:fontFamily="@font/intertmedium"
+        android:text="COMPRA"
+        android:textColor="@color/my_gray"
+        android:textSize="9sp"
+        app:layout_constraintEnd_toEndOf="@+id/doCompraTxt"
+        app:layout_constraintStart_toStartOf="@+id/doCompraTxt"
+        app:layout_constraintTop_toBottomOf="@+id/doCompraNumber5" />
+
+
+    <TextView
+        android:id="@+id/doVentaTxt5"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:fontFamily="@font/intertmedium"
+        android:text="VENTA"
+        android:textColor="@color/my_gray"
+        android:textSize="9sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/doCompraTxt6"
+        app:layout_constraintEnd_toEndOf="@+id/doVentaTxt"
+        app:layout_constraintStart_toStartOf="@+id/doVentaTxt" />
+
+    <TextView
+        android:id="@+id/dateTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/interlight"
+        android:text="17/04/2021"
+        android:textColor="@color/white"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/white_corners"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="111dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#272C91"
+            android:clickable="true"
+            android:contentDescription="TODO"
+            app:layout_anchor="@id/bottomAppBar"
+            android:src="@drawable/ic_add_home"/>
+
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottomAppBar"
+            style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:gravity="bottom" />
+
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
