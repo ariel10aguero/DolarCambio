@@ -37,6 +37,10 @@ class ChooseFragment : Fragment() {
         binding.buyChoose.setOnClickListener {
             findNavController().navigate(R.id.action_chooseFragment_to_buyFragment)
         }
+
+        binding.sellChoose.setOnClickListener {
+            findNavController().navigate(R.id.action_chooseFragment_to_sellFragment)
+        }
     }
 
     override fun onDestroyView() {

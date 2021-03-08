@@ -52,7 +52,7 @@
         app:layout_constraintTop_toBottomOf="@+id/usdTitle" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/arsTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
@@ -65,7 +65,7 @@
         app:layout_constraintTop_toBottomOf="@+id/buyUsdInput" />
 
     <EditText
-        android:id="@+id/editTextNumberDecimal2"
+        android:id="@+id/buyArsInput"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginTop="48dp"
@@ -80,10 +80,10 @@
         android:textColorHint="@color/my_gray"
         app:layout_constraintEnd_toEndOf="@+id/buyUsdInput"
         app:layout_constraintStart_toStartOf="@+id/buyUsdInput"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/arsTitle" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/dateTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
@@ -91,12 +91,12 @@
         android:text="Elegí una fecha"
         android:textColor="@color/white"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/editTextNumberDecimal2"
-        app:layout_constraintStart_toStartOf="@+id/editTextNumberDecimal2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal2" />
+        app:layout_constraintEnd_toEndOf="@+id/buyArsInput"
+        app:layout_constraintStart_toStartOf="@+id/buyArsInput"
+        app:layout_constraintTop_toBottomOf="@+id/buyArsInput" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/textView11"
+        android:id="@+id/buyChooseDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -110,13 +110,13 @@
         android:text="17/08/2020"
         android:textColor="@color/white"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView5"
-        app:layout_constraintStart_toStartOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintEnd_toEndOf="@+id/dateTitle"
+        app:layout_constraintStart_toStartOf="@+id/dateTitle"
+        app:layout_constraintTop_toBottomOf="@+id/dateTitle" />
 
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/button2"
+        android:id="@+id/buySaveBtn"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"

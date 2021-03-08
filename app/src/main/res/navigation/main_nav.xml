@@ -41,7 +41,7 @@
     </fragment>
     <fragment
         android:id="@+id/sellFragment"
-        android:name="com.example.dolarcambio.ui.BuyFragment"
+        android:name="com.example.dolarcambio.ui.SellFragment"
         android:label="fragment_sell"
         tools:layout="@layout/fragment_sell" >
         <action
