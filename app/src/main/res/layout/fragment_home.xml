@@ -30,7 +30,7 @@
         android:id="@+id/dolarOficialTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:fontFamily="@font/interlight"
         android:text="Dólar Oficial"
         android:textColor="@color/white"
@@ -43,13 +43,13 @@
         android:id="@+id/buyOficialNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="110dp"
         android:layout_marginRight="110dp"
         android:fontFamily="@font/intertmedium"
         android:text="$150,52"
         android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/dolarOficialTitle"
         app:layout_constraintTop_toBottomOf="@+id/dolarOficialTitle" />
 
@@ -62,7 +62,7 @@
         android:fontFamily="@font/intertmedium"
         android:text="$158,48"
         android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/buyOficialNum"
         app:layout_constraintStart_toStartOf="@+id/dolarOficialTitle" />
 
@@ -74,7 +74,7 @@
         android:fontFamily="@font/intertmedium"
         android:text="COMPRA"
         android:textColor="@color/my_gray"
-        android:textSize="9sp"
+        android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="@+id/buyOficialNum"
         app:layout_constraintStart_toStartOf="@+id/buyOficialNum"
         app:layout_constraintTop_toBottomOf="@+id/buyOficialNum" />
@@ -86,7 +86,7 @@
         android:fontFamily="@font/intertmedium"
         android:text="VENTA"
         android:textColor="@color/my_gray"
-        android:textSize="9sp"
+        android:textSize="10sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/compraOficial"
         app:layout_constraintEnd_toEndOf="@+id/sellOficialNum"
         app:layout_constraintHorizontal_bias="0.58"
@@ -96,7 +96,7 @@
         android:id="@+id/dolarBlueTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="18dp"
         android:fontFamily="@font/interlight"
         android:text="Dólar Blue"
         android:textColor="@color/white"
@@ -110,11 +110,11 @@
         android:id="@+id/buyBlueNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="@font/intertmedium"
         android:text="$150,52"
         android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/buyOficialNum"
         app:layout_constraintTop_toBottomOf="@+id/dolarBlueTitle" />
 
@@ -125,10 +125,9 @@
         android:fontFamily="@font/intertmedium"
         android:text="$158,48"
         android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/buyBlueNum"
         app:layout_constraintEnd_toEndOf="@+id/sellOficialNum" />
-
 
 
     <TextView
@@ -139,7 +138,7 @@
         android:fontFamily="@font/intertmedium"
         android:text="COMPRA"
         android:textColor="@color/my_gray"
-        android:textSize="9sp"
+        android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="@+id/compraOficial"
         app:layout_constraintStart_toStartOf="@+id/compraOficial"
         app:layout_constraintTop_toBottomOf="@+id/buyBlueNum" />
@@ -152,7 +151,7 @@
         android:fontFamily="@font/intertmedium"
         android:text="VENTA"
         android:textColor="@color/my_gray"
-        android:textSize="9sp"
+        android:textSize="10sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/compraBlue"
         app:layout_constraintEnd_toEndOf="@+id/ventaOficial"
         app:layout_constraintStart_toStartOf="@+id/ventaOficial" />

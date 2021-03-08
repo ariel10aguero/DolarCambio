@@ -23,7 +23,7 @@
         android:id="@+id/usdTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/interlight"
         android:text="¿Cuántos USD compraste? "
         android:textColor="@color/white"
@@ -83,60 +83,48 @@
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:drawablePadding="10dp"
+        android:layout_marginTop="56dp"
         android:fontFamily="@font/interlight"
-        android:text="17/08/2020"
+        android:text="Elegí una fecha"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/editTextNumberDecimal2"
-        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="@+id/editTextNumberDecimal2"
         app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal2" />
 
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginRight="6dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView11"
-        app:layout_constraintEnd_toStartOf="@+id/textView11"
-        app:layout_constraintTop_toTopOf="@+id/textView11"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/ic_event_white"
-        tools:ignore="VectorDrawableCompat" />
-
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/chgeDateBtn"
+        android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Cambiar"
-        android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="@+id/textView11"
-        app:layout_constraintHorizontal_bias="0.54"
-        app:layout_constraintStart_toStartOf="@+id/imageView8"
-        app:layout_constraintTop_toBottomOf="@+id/textView11"
-        app:strokeColor="@color/white"
-        app:strokeWidth="1dp" />
+        android:drawableLeft="@drawable/ic_event_white"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/intertmedium"
+        android:padding="10dp"
+        app:strokeWidth="1dp"
+        app:cornerRadius="10dp"
+        app:strokeColor="@color/my_gray"
+        android:text="17/08/2020"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView5"
+        app:layout_constraintStart_toStartOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button2"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginBottom="32dp"
         android:text="Guardar"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chgeDateBtn"
-        app:layout_constraintVertical_bias="0.75"
         app:strokeColor="@color/white"
         app:strokeWidth="1dp" />
 
