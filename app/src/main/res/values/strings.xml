@@ -8,4 +8,11 @@
         <item>Compra</item>
         <item>Venta</item>
     </string-array>
+
+    <string-array name="converter_type">
+        <item>Dolar Blue -> Peso</item>
+        <item>Dolar Oficial -> Peso </item>
+        <item>Peso -> Dolar Blue</item>
+        <item>Peso -> Dolar Oficial</item>
+    </string-array>
 </resources>

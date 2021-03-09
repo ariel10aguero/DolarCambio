@@ -9,7 +9,7 @@
 
 
     <ImageButton
-        android:id="@+id/backArrow"
+        android:id="@+id/backArrowChoose"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="24dp"
@@ -31,7 +31,7 @@
         android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/backArrow" />
+        app:layout_constraintTop_toBottomOf="@+id/backArrowChoose" />
 
     <TextView
         android:id="@+id/oTxt"
