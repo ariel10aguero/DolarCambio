@@ -56,38 +56,38 @@ class HomeFragment : Fragment() {
 
         }
 
-
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 
-    fun setUpSpinner() {
-        val spinner = binding.spinnerHome
-        val spinnerAdapter = ArrayAdapter.createFromResource(
-            requireContext(),
-            R.array.transaction_type,
-            R.layout.spinner_custom
-        )
-        spinnerAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
-        spinner.adapter = spinnerAdapter
-    }
+        override fun onDestroyView() {
+            super.onDestroyView()
+            _binding = null
+        }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.home_menu, menu)
-        super.onCreateOptionsMenu(menu, inflater)
+        fun setUpSpinner() {
+            val spinner = binding.spinnerHome
+            val spinnerAdapter = ArrayAdapter.createFromResource(
+                requireContext(),
+                R.array.transaction_type,
+                R.layout.spinner_custom
+            )
+            spinnerAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
+            spinner.adapter = spinnerAdapter
+        }
 
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
-        if (item.itemId == R.id.convert_calculator) {
-
-            Log.d("onda", "mala")
-            Toast.makeText(requireContext(), "yoop", Toast.LENGTH_SHORT).show()
+        override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+            inflater.inflate(R.menu.home_menu, menu)
+            super.onCreateOptionsMenu(menu, inflater)
 
         }
-        return super.onOptionsItemSelected(item)
-    }
+
+        override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+            if (item.itemId == R.id.convert_calculator) {
+
+                Log.d("onda", "mala")
+                Toast.makeText(requireContext(), "yoop", Toast.LENGTH_SHORT).show()
+
+            }
+            return super.onOptionsItemSelected(item)
+        }
 }
