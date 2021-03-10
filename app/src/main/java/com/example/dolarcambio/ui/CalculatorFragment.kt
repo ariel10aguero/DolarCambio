@@ -30,6 +30,7 @@ class CalculatorFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setUpSpinner()
 
     }
 
@@ -43,7 +44,7 @@ class CalculatorFragment : Fragment() {
         val spinnerConverterAdapter = ArrayAdapter.createFromResource(
             requireContext(),
             R.array.converter_type,
-            R.layout.spinner_custom
+            R.layout.spinner_calculator
         )
         spinnerConverterAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
         spinner.adapter = spinnerConverterAdapter

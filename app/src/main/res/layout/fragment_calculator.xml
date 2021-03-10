@@ -22,8 +22,8 @@
         android:paddingLeft="12dp"
         android:textColor="@color/white"
         android:textColorHint="@color/my_gray"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/comprasteTxt3"
+        app:layout_constraintStart_toStartOf="@+id/comprasteTxt3"
         app:layout_constraintTop_toBottomOf="@+id/comprasteTxt3" />
 
     <ImageButton
@@ -74,8 +74,8 @@
         android:text="Tipo de conversión"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/buyUsdInput2"
+        app:layout_constraintStart_toStartOf="@+id/buyUsdInput2"
         app:layout_constraintTop_toBottomOf="@+id/buyUsdInput2" />
 
     <Spinner
@@ -83,6 +83,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
+        android:background="@null"
+        android:padding="8dp"
         app:layout_constraintEnd_toEndOf="@+id/comprasteTxt4"
         app:layout_constraintStart_toStartOf="@+id/comprasteTxt4"
         app:layout_constraintTop_toBottomOf="@+id/comprasteTxt4" />
