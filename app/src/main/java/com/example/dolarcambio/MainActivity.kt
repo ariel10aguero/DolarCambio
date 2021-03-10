@@ -3,6 +3,7 @@ package com.example.dolarcambio
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.dolarcambio.databinding.ActivityMainBinding
+import com.example.dolarcambio.databinding.FragmentHomeBinding
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,6 +14,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+
     }
+
      
 }

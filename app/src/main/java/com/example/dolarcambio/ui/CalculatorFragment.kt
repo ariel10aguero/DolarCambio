@@ -1,11 +1,10 @@
 package com.example.dolarcambio.ui
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import com.example.dolarcambio.databinding.FragmentBuyBinding
+import android.widget.ArrayAdapter
+import com.example.dolarcambio.R
 import com.example.dolarcambio.databinding.FragmentCalculatorBinding
 
 
@@ -32,11 +31,23 @@ class CalculatorFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
+    fun setUpSpinner() {
+        val spinner = binding.spinnerConverter
+        val spinnerConverterAdapter = ArrayAdapter.createFromResource(
+            requireContext(),
+            R.array.converter_type,
+            R.layout.spinner_custom
+        )
+        spinnerConverterAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
+        spinner.adapter = spinnerConverterAdapter
+    }
+
+
 }
