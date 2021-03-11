@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.dolarcambio.databinding.FragmentBuyBinding
-import com.example.dolarcambio.databinding.FragmentHomeBinding
 
 class BuyFragment : Fragment() {
 
@@ -38,4 +37,6 @@ class BuyFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+
 }
