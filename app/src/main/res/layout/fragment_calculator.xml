@@ -7,27 +7,9 @@
     android:background="@drawable/background_choose"
     tools:context="ui.CalculatorFragment">
 
-    <EditText
-        android:id="@+id/buyUsdInput2"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginTop="44dp"
-        android:background="@drawable/background_custom_input"
-        android:drawableLeft="@drawable/ic_dollar_gray"
-        android:drawablePadding="4dp"
-        android:ems="10"
-        android:hint="0"
-        android:inputType="numberDecimal"
-        android:maxLength="9"
-        android:paddingLeft="12dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/my_gray"
-        app:layout_constraintEnd_toEndOf="@+id/comprasteTxt3"
-        app:layout_constraintStart_toStartOf="@+id/comprasteTxt3"
-        app:layout_constraintTop_toBottomOf="@+id/comprasteTxt3" />
 
     <ImageButton
-        android:id="@+id/backArrowBuy"
+        android:id="@+id/backArrowConverter"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="24dp"
@@ -40,7 +22,7 @@
 
 
     <TextView
-        android:id="@+id/comprasteTxt2"
+        android:id="@+id/convertidorTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -50,43 +32,105 @@
         android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/backArrowBuy" />
+        app:layout_constraintTop_toBottomOf="@+id/backArrowConverter" />
+
+    <View
+        android:id="@+id/converterStroke"
+        android:layout_width="340dp"
+        android:layout_height="390dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/background_converter_stroke"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/convertidorTitle" />
+
 
     <TextView
-        android:id="@+id/comprasteTxt3"
+        android:id="@+id/importeTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="@font/interlight"
         android:text="Importe"
         android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/comprasteTxt2" />
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/converterStroke"
+        app:layout_constraintStart_toStartOf="@+id/converterStroke"
+        app:layout_constraintTop_toTopOf="@+id/converterStroke" />
+
+    <EditText
+        android:id="@+id/convertNumInput"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/background_custom_input"
+        android:drawableLeft="@drawable/ic_dollar_gray"
+        android:drawablePadding="4dp"
+        android:ems="10"
+        android:hint="0"
+        android:inputType="numberDecimal"
+        android:maxLength="9"
+        android:paddingLeft="12dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/my_gray"
+        app:layout_constraintEnd_toEndOf="@+id/importeTxt"
+        app:layout_constraintStart_toStartOf="@+id/importeTxt"
+        app:layout_constraintTop_toBottomOf="@+id/importeTxt" />
+
 
     <TextView
-        android:id="@+id/comprasteTxt4"
+        android:id="@+id/tipoTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="@font/interlight"
         android:text="Tipo de conversión"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="@+id/buyUsdInput2"
-        app:layout_constraintStart_toStartOf="@+id/buyUsdInput2"
-        app:layout_constraintTop_toBottomOf="@+id/buyUsdInput2" />
+        app:layout_constraintEnd_toEndOf="@+id/convertNumInput"
+        app:layout_constraintStart_toStartOf="@+id/convertNumInput"
+        app:layout_constraintTop_toBottomOf="@+id/convertNumInput" />
 
     <Spinner
         android:id="@+id/spinnerConverter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="32dp"
         android:background="@null"
         android:padding="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/comprasteTxt4"
-        app:layout_constraintStart_toStartOf="@+id/comprasteTxt4"
-        app:layout_constraintTop_toBottomOf="@+id/comprasteTxt4" />
+        app:layout_constraintEnd_toEndOf="@+id/convertNumInput"
+        app:layout_constraintStart_toStartOf="@+id/convertNumInput"
+        app:layout_constraintTop_toBottomOf="@+id/tipoTxt" />
+
+
+    <TextView
+        android:id="@+id/convertResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/interlight"
+        android:text="$150000"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/converterStroke"
+        app:layout_constraintEnd_toEndOf="@+id/converterStroke"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/converterStroke"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerConverter"
+        app:layout_constraintVertical_bias="0.8" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/convertBtn"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="Convertir"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:strokeColor="@color/white"
+        app:strokeWidth="1dp" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

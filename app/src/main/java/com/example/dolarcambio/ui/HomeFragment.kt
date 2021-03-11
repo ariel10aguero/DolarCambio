@@ -39,6 +39,8 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setUpSpinner()
+
         binding.floatingActionButton.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_chooseFragment)
         }
