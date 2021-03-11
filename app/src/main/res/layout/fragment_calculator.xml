@@ -25,7 +25,7 @@
         android:id="@+id/convertidorTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/interlight"
         android:text="Convertidor de Moneda"
         android:textColor="@color/white"
@@ -111,23 +111,24 @@
         android:text="$150000"
         android:textColor="@color/white"
         android:textSize="20dp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="@+id/converterStroke"
         app:layout_constraintEnd_toEndOf="@+id/converterStroke"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/converterStroke"
         app:layout_constraintTop_toBottomOf="@+id/spinnerConverter"
-        app:layout_constraintVertical_bias="0.8" />
+        app:layout_constraintVertical_bias="0.57" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/convertBtn"
-        android:layout_width="170dp"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:text="Convertir"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/importeTxt"
+        app:layout_constraintStart_toStartOf="@+id/importeTxt"
         app:strokeColor="@color/white"
         app:strokeWidth="1dp" />
 

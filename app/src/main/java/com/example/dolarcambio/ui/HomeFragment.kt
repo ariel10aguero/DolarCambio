@@ -31,8 +31,6 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val view = binding.root
 
-
-
         return view
     }
 
@@ -54,8 +52,6 @@ class HomeFragment : Fragment() {
                 }
                 else -> false
             }
-
-
         }
 
     }
@@ -74,22 +70,5 @@ class HomeFragment : Fragment() {
             )
             spinnerAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
             spinner.adapter = spinnerAdapter
-        }
-
-        override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-            inflater.inflate(R.menu.home_menu, menu)
-            super.onCreateOptionsMenu(menu, inflater)
-
-        }
-
-        override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
-            if (item.itemId == R.id.convert_calculator) {
-
-                Log.d("onda", "mala")
-                Toast.makeText(requireContext(), "yoop", Toast.LENGTH_SHORT).show()
-
-            }
-            return super.onOptionsItemSelected(item)
         }
 }

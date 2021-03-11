@@ -32,6 +32,10 @@ class CalculatorFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setUpSpinner()
 
+        binding.convertBtn.setOnClickListener{
+            binding.convertResult.visibility = View.VISIBLE
+        }
+
     }
 
     override fun onDestroyView() {
