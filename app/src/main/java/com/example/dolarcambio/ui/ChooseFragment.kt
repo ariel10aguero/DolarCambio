@@ -41,6 +41,11 @@ class ChooseFragment : Fragment() {
         binding.sellChoose.setOnClickListener {
             findNavController().navigate(R.id.action_chooseFragment_to_sellFragment)
         }
+
+        binding.backArrowChoose.setOnClickListener {
+            findNavController().navigate(R.id.action_chooseFragment_to_homeFragment)
+        }
+
     }
 
     override fun onDestroyView() {

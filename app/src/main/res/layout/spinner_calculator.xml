@@ -6,7 +6,7 @@
     android:fontFamily="@font/interlight"
     android:textColor="@color/white"
     android:drawableLeft="@drawable/ic_change_circle"
-    android:drawablePadding="4dp"
+    android:drawablePadding="8dp"
     android:background="@drawable/background_custom_input"
     android:padding="8dp">
 
