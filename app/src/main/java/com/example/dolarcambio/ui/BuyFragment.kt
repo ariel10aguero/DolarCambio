@@ -48,6 +48,9 @@ class BuyFragment : Fragment(), DatePickerDialog.OnDateSetListener {
         binding.buyDateBtn.setOnClickListener {
             DatePickerDialog(requireContext(),this, calendarUtils.year, calendarUtils.month, calendarUtils.day).show()
         }
+        binding.buySaveBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_buyFragment_to_homeFragment)
+        }
 
     }
 

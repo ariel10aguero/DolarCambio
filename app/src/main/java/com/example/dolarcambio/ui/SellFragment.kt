@@ -48,6 +48,9 @@ class SellFragment : Fragment(), DatePickerDialog.OnDateSetListener {
         binding.sellDateBtn.setOnClickListener {
             DatePickerDialog(requireContext(),this, calendarUtils.year, calendarUtils.month, calendarUtils.day).show()
         }
+        binding.sellSaveBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_sellFragment_to_homeFragment)
+        }
     }
 
     override fun onDestroyView() {
