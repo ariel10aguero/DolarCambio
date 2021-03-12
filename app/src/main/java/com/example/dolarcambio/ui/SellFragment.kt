@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.dolarcambio.R
+import com.example.dolarcambio.closeKeyboard
 import com.example.dolarcambio.databinding.FragmentBuyBinding
 import com.example.dolarcambio.databinding.FragmentSellBinding
 
@@ -35,6 +36,7 @@ class SellFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.backArrowSell.setOnClickListener {
+            closeKeyboard(it)
             findNavController().navigate(R.id.action_sellFragment_to_chooseFragment)
         }
     }

@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.widget.ArrayAdapter
 import androidx.navigation.fragment.findNavController
 import com.example.dolarcambio.R
+import com.example.dolarcambio.closeKeyboard
 import com.example.dolarcambio.databinding.FragmentCalculatorBinding
 
 
@@ -38,7 +39,9 @@ class CalculatorFragment : Fragment() {
         }
 
         binding.backArrowConverter.setOnClickListener{
+            closeKeyboard(it)
             findNavController().navigate(R.id.action_calculatorFragment_to_homeFragment)
+
         }
 
     }

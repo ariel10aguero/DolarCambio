@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
 import com.example.dolarcambio.R
+import com.example.dolarcambio.closeKeyboard
 import com.example.dolarcambio.databinding.FragmentBuyBinding
 
 class BuyFragment : Fragment() {
@@ -35,7 +36,9 @@ class BuyFragment : Fragment() {
 
 
         binding.backArrowBuy.setOnClickListener {
+            closeKeyboard(it)
             findNavController().navigate(R.id.action_buyFragment_to_chooseFragment)
+
             
         }
 
