@@ -38,9 +38,8 @@ class BuyFragment : Fragment() {
         binding.backArrowBuy.setOnClickListener {
             closeKeyboard(it)
             findNavController().navigate(R.id.action_buyFragment_to_chooseFragment)
-
-            
         }
+
 
     }
 
