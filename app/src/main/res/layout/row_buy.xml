@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    android:padding="4dp"
+    app:cardElevation="6dp"
+    app:cardCornerRadius="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iconGreen"
+            android:layout_width="45dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_itemrow_green" />
+
+        <TextView
+            android:id="@+id/CompraTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/interlight"
+            android:text="Compra"
+            android:textColor="@color/black"
+            android:textSize="14dp"
+            app:layout_constraintStart_toEndOf="@+id/iconGreen"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/buyIconEvent"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/iconGreen"
+            app:layout_constraintTop_toBottomOf="@+id/CompraTxt"
+            android:src="@drawable/ic_event_black"/>
+
+        <TextView
+            android:id="@+id/buyRowDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/interlight"
+            android:text="04/05/2021"
+            android:textColor="@color/black"
+            android:textSize="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/buyIconEvent"
+            app:layout_constraintTop_toBottomOf="@+id/CompraTxt" />
+
+        <TextView
+            android:id="@+id/buyRowArs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="120dp"
+            android:layout_marginRight="120dp"
+            android:fontFamily="@font/interlight"
+            android:text="$15,000"
+            android:textColor="@color/red_itemrow"
+            android:textSize="14dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/rightArrowBuy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/buyRowUsd"
+            app:layout_constraintStart_toEndOf="@+id/buyRowArs"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_arrow_itemrow" />
+
+        <TextView
+            android:id="@+id/buyRowUsd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:fontFamily="@font/interlight"
+            android:text="U$100"
+            android:textColor="@color/green_itemrow"
+            android:textSize="14dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:textSize="16sp"
+    android:fontFamily="@font/interlight"
+    android:textColor="@color/white"
+    android:drawableLeft="@drawable/ic_change_circle"
+    android:drawablePadding="8dp"
+    android:background="@drawable/background_custom_input"
+    android:padding="8dp">
+
+</TextView>

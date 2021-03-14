@@ -1,14 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BuyFragment">
+    android:background="@drawable/background_choose"
+    tools:context="ui.BuyFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageButton
+        android:id="@+id/backArrowBuy"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="32dp"
+        android:background="@null"
+        android:src="@drawable/ic_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/usdTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/interlight"
+        android:text="¿Cuántos USD compraste? "
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backArrowBuy" />
 
-</FrameLayout>
+    <EditText
+        android:id="@+id/buyUsdInput"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/background_custom_input"
+        android:drawableLeft="@drawable/ic_dollar_gray"
+        android:drawablePadding="4dp"
+        android:ems="10"
+        android:hint="0"
+        android:inputType="numberDecimal"
+        android:maxLength="9"
+        android:paddingLeft="12dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/my_gray"
+        app:layout_constraintEnd_toEndOf="@+id/usdTitle"
+        app:layout_constraintStart_toStartOf="@+id/usdTitle"
+        app:layout_constraintTop_toBottomOf="@+id/usdTitle" />
+
+    <TextView
+        android:id="@+id/arsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:fontFamily="@font/interlight"
+        android:text="¿Por cuántos ARS? "
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/usdTitle"
+        app:layout_constraintStart_toStartOf="@+id/usdTitle"
+        app:layout_constraintTop_toBottomOf="@+id/buyUsdInput" />
+
+    <EditText
+        android:id="@+id/buyArsInput"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/background_custom_input"
+        android:drawableLeft="@drawable/ic_dollar_gray"
+        android:drawablePadding="4dp"
+        android:ems="10"
+        android:hint="0"
+        android:inputType="numberDecimal"
+        android:paddingLeft="12dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/my_gray"
+        app:layout_constraintEnd_toEndOf="@+id/buyUsdInput"
+        app:layout_constraintStart_toStartOf="@+id/buyUsdInput"
+        app:layout_constraintTop_toBottomOf="@+id/arsTitle" />
+
+    <TextView
+        android:id="@+id/dateTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:fontFamily="@font/interlight"
+        android:text="Elegí una fecha"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/buyArsInput"
+        app:layout_constraintStart_toStartOf="@+id/buyArsInput"
+        app:layout_constraintTop_toBottomOf="@+id/buyArsInput" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buyDateInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:drawableLeft="@drawable/ic_event_white"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/intertmedium"
+        android:padding="10dp"
+        app:strokeWidth="1dp"
+        app:cornerRadius="10dp"
+        app:strokeColor="@color/my_gray"
+        android:text="17/08/2020"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/dateTitle"
+        app:layout_constraintStart_toStartOf="@+id/dateTitle"
+        app:layout_constraintTop_toBottomOf="@+id/dateTitle" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buySaveBtn"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="Guardar"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:strokeColor="@color/white"
+        app:strokeWidth="1dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

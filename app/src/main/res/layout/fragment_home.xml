@@ -6,15 +6,237 @@
     android:layout_height="match_parent"
     tools:context=".ui.HomeFragment">
 
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:text="TextView"
+    <View
+        android:id="@+id/blue_background"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@drawable/background_blue_home"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/white_corners"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:background="@drawable/background_white_corners"
+        app:layout_constraintBottom_toBottomOf="@+id/blue_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <TextView
+        android:id="@+id/dolarOficialTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/interlight"
+        android:text="Dólar Oficial"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/buyOficialNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="110dp"
+        android:layout_marginRight="110dp"
+        android:fontFamily="@font/intertmedium"
+        android:text="$150,52"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/dolarOficialTitle"
+        app:layout_constraintTop_toBottomOf="@+id/dolarOficialTitle" />
+
+    <TextView
+        android:id="@+id/sellOficialNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="110dp"
+        android:layout_marginLeft="110dp"
+        android:fontFamily="@font/intertmedium"
+        android:text="$158,48"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buyOficialNum"
+        app:layout_constraintStart_toStartOf="@+id/dolarOficialTitle" />
+
+    <TextView
+        android:id="@+id/compraOficial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:fontFamily="@font/intertmedium"
+        android:text="COMPRA"
+        android:textColor="@color/my_gray"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/buyOficialNum"
+        app:layout_constraintStart_toStartOf="@+id/buyOficialNum"
+        app:layout_constraintTop_toBottomOf="@+id/buyOficialNum" />
+
+    <TextView
+        android:id="@+id/ventaOficial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/intertmedium"
+        android:text="VENTA"
+        android:textColor="@color/my_gray"
+        android:textSize="10sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/compraOficial"
+        app:layout_constraintEnd_toEndOf="@+id/sellOficialNum"
+        app:layout_constraintHorizontal_bias="0.58"
+        app:layout_constraintStart_toStartOf="@+id/sellOficialNum" />
+
+    <TextView
+        android:id="@+id/dolarBlueTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:fontFamily="@font/interlight"
+        android:text="Dólar Blue"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/dolarOficialTitle"
+        app:layout_constraintStart_toStartOf="@+id/dolarOficialTitle"
+        app:layout_constraintTop_toBottomOf="@+id/compraOficial" />
+
+
+    <TextView
+        android:id="@+id/buyBlueNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/intertmedium"
+        android:text="$150,52"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/buyOficialNum"
+        app:layout_constraintTop_toBottomOf="@+id/dolarBlueTitle" />
+
+    <TextView
+        android:id="@+id/sellBlueNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/intertmedium"
+        android:text="$158,48"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buyBlueNum"
+        app:layout_constraintEnd_toEndOf="@+id/sellOficialNum" />
+
+
+    <TextView
+        android:id="@+id/compraBlue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:fontFamily="@font/intertmedium"
+        android:text="COMPRA"
+        android:textColor="@color/my_gray"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/compraOficial"
+        app:layout_constraintStart_toStartOf="@+id/compraOficial"
+        app:layout_constraintTop_toBottomOf="@+id/buyBlueNum" />
+
+
+    <TextView
+        android:id="@+id/ventaBlue"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:fontFamily="@font/intertmedium"
+        android:text="VENTA"
+        android:textColor="@color/my_gray"
+        android:textSize="10sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/compraBlue"
+        app:layout_constraintEnd_toEndOf="@+id/ventaOficial"
+        app:layout_constraintStart_toStartOf="@+id/ventaOficial" />
+
+    <TextView
+        android:id="@+id/dateLastUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/interlight"
+        android:text="17/04/2021"
+        android:textColor="@color/white"
+        android:textSize="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/white_corners"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <TextView
+        android:id="@+id/transactionsTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:fontFamily="@font/interlight"
+        android:text="Transacciones "
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/white_corners" />
+
+    <Spinner
+        android:id="@+id/spinnerHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/transactionsTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/transactionsTxt"
+        app:layout_constraintTop_toTopOf="@+id/transactionsTxt" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/transactionsTxt" />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="111dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#272C91"
+            android:clickable="true"
+            android:contentDescription="TODO"
+            android:src="@drawable/ic_add_home"
+            app:layout_anchor="@id/bottomAppBar" />
+
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottomAppBar"
+            style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:gravity="bottom"
+            app:menu="@menu/home_menu"/>
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

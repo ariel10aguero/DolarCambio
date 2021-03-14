@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import com.example.dolarcambio.R
 import com.example.dolarcambio.databinding.FragmentBuyBinding
 import com.example.dolarcambio.databinding.FragmentChooseBinding
 
@@ -31,6 +33,18 @@ class ChooseFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.buyChoose.setOnClickListener {
+            findNavController().navigate(R.id.action_chooseFragment_to_buyFragment)
+        }
+
+        binding.sellChoose.setOnClickListener {
+            findNavController().navigate(R.id.action_chooseFragment_to_sellFragment)
+        }
+
+        binding.backArrowChoose.setOnClickListener {
+            findNavController().navigate(R.id.action_chooseFragment_to_homeFragment)
+        }
 
     }
 
