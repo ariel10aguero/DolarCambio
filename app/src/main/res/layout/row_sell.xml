@@ -41,7 +41,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/selIconEvent"
+            android:id="@+id/sellIconEvent"
             android:layout_width="14dp"
             android:layout_height="14dp"
             android:layout_marginStart="12dp"
@@ -52,7 +52,7 @@
             app:layout_constraintTop_toBottomOf="@+id/VentaTxt" />
 
         <TextView
-            android:id="@+id/sellDate"
+            android:id="@+id/sellRowDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
@@ -63,7 +63,7 @@
             android:textColor="@color/black"
             android:textSize="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/selIconEvent"
+            app:layout_constraintStart_toEndOf="@+id/sellIconEvent"
             app:layout_constraintTop_toBottomOf="@+id/VentaTxt" />
 
         <TextView
@@ -81,7 +81,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/rightArrowBuy"
+            android:id="@+id/rightArrowSell"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
@@ -107,7 +107,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
