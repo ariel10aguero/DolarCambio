@@ -44,8 +44,8 @@ class SellFragment : Fragment(), DatePickerDialog.OnDateSetListener {
             findNavController().navigate(R.id.action_sellFragment_to_chooseFragment)
         }
 
-        binding.sellDateBtn.text = calendarUtils.setBtnDate()
-        binding.sellDateBtn.setOnClickListener {
+        binding.sellDateInput.text = calendarUtils.setBtnDate()
+        binding.sellDateInput.setOnClickListener {
             DatePickerDialog(requireContext(),this, calendarUtils.year, calendarUtils.month, calendarUtils.day).show()
         }
         binding.sellSaveBtn.setOnClickListener {
@@ -64,6 +64,6 @@ class SellFragment : Fragment(), DatePickerDialog.OnDateSetListener {
         calendarUtils.day = dayOfMonth
         val realMonth = month + 1
 
-        binding.sellDateBtn.text = "$dayOfMonth/$realMonth/$year"
+        binding.sellDateInput.text = "$dayOfMonth/$realMonth/$year"
     }
 }

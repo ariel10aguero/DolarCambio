@@ -96,7 +96,7 @@
         app:layout_constraintTop_toBottomOf="@+id/buyArsInput" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/buyDateBtn"
+        android:id="@+id/buyDateInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
