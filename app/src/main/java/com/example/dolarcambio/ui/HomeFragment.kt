@@ -51,8 +51,8 @@ class HomeFragment : Fragment() {
         fakeDb.add(Transaction(3,0,"149","15000","15/4/2021"))
         fakeDb.add(Transaction(4,1,"149","15000","15/4/2021"))
         fakeDb.add(Transaction(5,0,"149","15000","15/4/2021"))
-        fakeDb.add(Transaction(6,1,"149","15000","15/4/2021"))
-        fakeDb.add(Transaction(7,0,"149","15000","15/4/2021"))
+        fakeDb.add(Transaction(6,1,"150","170000","15/4/2021"))
+        fakeDb.add(Transaction(7,0,"1500","315000","15/4/2021"))
         fakeDb.add(Transaction(8,1,"149","15000","15/4/2021"))
 
         recyclerAdapter.setList(fakeDb)

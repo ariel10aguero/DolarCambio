@@ -29,8 +29,8 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     inner class SellItem(val binding: RowSellBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(trans: Transaction) {
-            binding.sellRowUsd.text = trans.usd
-            binding.sellRowArs.text = trans.ars
+            binding.sellRowUsd.text = "U$" + trans.usd
+            binding.sellRowArs.text = "$" + trans.ars
             binding.sellRowDate.text = trans.date
 
         }
@@ -40,8 +40,8 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     inner class BuyItem(val binding: RowBuyBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(trans: Transaction) {
-            binding.buyRowUsd.text = trans.usd
-            binding.buyRowArs.text = trans.ars
+            binding.buyRowUsd.text = "U$" + trans.usd
+            binding.buyRowArs.text = "$" + trans.ars
             binding.buyRowDate.text = trans.date
         }
 
