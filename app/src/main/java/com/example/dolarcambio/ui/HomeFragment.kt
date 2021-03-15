@@ -3,6 +3,7 @@ package com.example.dolarcambio.ui
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.widget.AdapterView
 import androidx.fragment.app.Fragment
 import android.widget.ArrayAdapter
 import android.widget.Toast
@@ -19,6 +20,10 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     lateinit var recyclerAdapter: RecyclerAdapter
+    lateinit var fakeDb: MutableList<Transaction>
+    lateinit var fakeDbSell: MutableList<Transaction>
+    lateinit var fakeDbBuy: MutableList<Transaction>
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +49,7 @@ class HomeFragment : Fragment() {
         setUpButtons()
         setUpRecycerView()
 
-        val fakeDb = mutableListOf<Transaction>()
+        fakeDb = mutableListOf<Transaction>()
         fakeDb.add(Transaction(0,0,"149","15000","15/4/2021"))
         fakeDb.add(Transaction(1,0,"149","15000","15/4/2021"))
         fakeDb.add(Transaction(2,1,"149","15000","15/4/2021"))
@@ -54,6 +59,9 @@ class HomeFragment : Fragment() {
         fakeDb.add(Transaction(6,1,"150","170000","15/4/2021"))
         fakeDb.add(Transaction(7,0,"1500","315000","15/4/2021"))
         fakeDb.add(Transaction(8,1,"149","15000","15/4/2021"))
+
+        fakeDbSell = fakeDb.filter { trans:  Transaction -> trans.type == 0 } as MutableList<Transaction>
+        fakeDbBuy = fakeDb.filter { trans:  Transaction -> trans.type == 1 } as MutableList<Transaction>
 
         recyclerAdapter.setList(fakeDb)
 
@@ -75,6 +83,27 @@ class HomeFragment : Fragment() {
         )
         spinnerAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
         spinner.adapter = spinnerAdapter
+
+        spinner.onItemSelectedListener = object :AdapterView.OnItemSelectedListener{
+
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                when(position){
+                    0 -> recyclerAdapter.setList(fakeDb)
+                    1 -> recyclerAdapter.setList(fakeDbBuy)
+                    2 -> recyclerAdapter.setList(fakeDbSell)
+                }
+                recyclerAdapter.notifyDataSetChanged()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+            }
+        }
+
     }
 
     fun setUpButtons(){
