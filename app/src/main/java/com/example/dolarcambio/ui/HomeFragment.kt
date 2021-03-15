@@ -9,8 +9,10 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dolarcambio.R
+import com.example.dolarcambio.Utils.SwipeDelete
 import com.example.dolarcambio.data.Transaction
 import com.example.dolarcambio.databinding.FragmentHomeBinding
 
@@ -48,6 +50,8 @@ class HomeFragment : Fragment() {
         setUpSpinner()
         setUpButtons()
         setUpRecycerView()
+
+        ItemTouchHelper(SwipeDelete(recyclerAdapter,requireContext())).attachToRecyclerView(binding.recyclerView)
 
         fakeDb = mutableListOf<Transaction>()
         fakeDb.add(Transaction(0,0,"149","15000","15/4/2021"))

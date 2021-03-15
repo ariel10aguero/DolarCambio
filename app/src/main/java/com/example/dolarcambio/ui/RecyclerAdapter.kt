@@ -55,13 +55,11 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             1 -> return BUY_ROW
             else -> return EMPTY_ROW
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
-        val sellInflater =
-            RowSellBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val sellInflater = RowSellBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         val buyInflater = RowBuyBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         val emptyInflater =
             RowEmptylistBinding.inflate(LayoutInflater.from(parent.context), parent, false)
