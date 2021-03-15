@@ -24,6 +24,12 @@
             app:exitAnim="@anim/to_top"
             app:popEnterAnim="@anim/from_top"
             app:popExitAnim="@anim/to_bottom" />
+        <action
+            android:id="@+id/action_homeFragment_to_buyFragment"
+            app:destination="@id/buyFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_sellFragment"
+            app:destination="@id/sellFragment" />
     </fragment>
     <fragment
         android:id="@+id/chooseFragment"

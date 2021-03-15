@@ -135,9 +135,10 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
     }
 
     override fun onClickRow(trans: Transaction) {
+
       when(trans.type){
-          0 -> Toast.makeText(requireContext(), "Daleee", Toast.LENGTH_SHORT).show()
-          1 -> Log.d("buy", "Comprar")
+          0 -> findNavController().navigate(R.id.action_homeFragment_to_sellFragment)
+          1 -> findNavController().navigate(R.id.action_homeFragment_to_buyFragment)
       }
 
     }

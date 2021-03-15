@@ -93,12 +93,7 @@ class RecyclerAdapter(private val onClick: OnClickRowListener) : RecyclerView.Ad
         }
 
         holder.itemView.setOnClickListener {
-            if (getItemViewType(position) == 0){
-                Log.d("click","click")
-            }
-            else {
-                Log.d("click", "click")
-            }
+            onClick.onClickRow(currentItem)
         }
 
     }
