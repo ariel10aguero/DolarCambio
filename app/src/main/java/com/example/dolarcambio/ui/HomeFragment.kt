@@ -136,9 +136,12 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
 
     override fun onClickRow(trans: Transaction) {
 
+        val sellAction = HomeFragmentDirections.actionHomeFragmentToSellFragment(trans)
+        val buyAction = HomeFragmentDirections.actionHomeFragmentToBuyFragment(trans)
+
       when(trans.type){
-          0 -> findNavController().navigate(R.id.action_homeFragment_to_sellFragment)
-          1 -> findNavController().navigate(R.id.action_homeFragment_to_buyFragment)
+          0 -> findNavController().navigate(sellAction)
+          1 -> findNavController().navigate(buyAction)
       }
 
     }

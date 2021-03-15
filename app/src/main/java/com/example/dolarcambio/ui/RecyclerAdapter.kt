@@ -71,8 +71,7 @@ class RecyclerAdapter(private val onClick: OnClickRowListener) : RecyclerView.Ad
 
         val sellInflater = RowSellBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         val buyInflater = RowBuyBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        val emptyInflater =
-            RowEmptylistBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val emptyInflater = RowEmptylistBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         when (viewType) {
             SELL_ROW -> return SellItem(sellInflater)
             BUY_ROW -> return BuyItem(buyInflater)

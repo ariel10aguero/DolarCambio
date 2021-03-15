@@ -77,6 +77,9 @@
             app:exitAnim="@anim/to_right"
             app:popUpTo="@id/homeFragment"
             app:popUpToInclusive="false" />
+        <argument
+            android:name="buyArgs"
+            app:argType="com.example.dolarcambio.data.Transaction" />
     </fragment>
     <fragment
         android:id="@+id/sellFragment"
@@ -97,6 +100,9 @@
             app:exitAnim="@anim/to_left"
             app:popUpTo="@id/homeFragment"
             app:popUpToInclusive="false" />
+        <argument
+            android:name="sellArgs"
+            app:argType="com.example.dolarcambio.data.Transaction" />
     </fragment>
     <fragment
         android:id="@+id/calculatorFragment"
