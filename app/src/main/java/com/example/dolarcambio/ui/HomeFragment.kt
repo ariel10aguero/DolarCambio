@@ -17,7 +17,7 @@ import com.example.dolarcambio.data.Transaction
 import com.example.dolarcambio.databinding.FragmentHomeBinding
 
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -30,7 +30,7 @@ class HomeFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
-        recyclerAdapter = RecyclerAdapter()
+        recyclerAdapter = RecyclerAdapter(this)
 
     }
 
@@ -134,7 +134,13 @@ class HomeFragment : Fragment() {
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
     }
 
+    override fun onClickRow(trans: Transaction) {
+      when(trans.type){
+          0 -> Toast.makeText(requireContext(), "Daleee", Toast.LENGTH_SHORT).show()
+          1 -> Log.d("buy", "Comprar")
+      }
 
+    }
 
 
 }

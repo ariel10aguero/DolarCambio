@@ -1,7 +1,9 @@
 package com.example.dolarcambio.ui
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dolarcambio.data.Transaction
 import com.example.dolarcambio.databinding.RowBuyBinding
@@ -13,7 +15,7 @@ private const val SELL_ROW = 0
 private const val BUY_ROW = 1
 private const val EMPTY_ROW = 2
 
-class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class RecyclerAdapter(private val onClick: OnClickRowListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     var transList = mutableListOf<Transaction>()
 
@@ -21,8 +23,11 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         transList = list
     }
 
+    interface OnClickRowListener{
+        fun onClickRow(trans: Transaction)
+    }
 
-    inner class EmptyList(val binding: RowEmptylistBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class EmptyList(binding: RowEmptylistBinding) : RecyclerView.ViewHolder(binding.root) {
 
     }
 
@@ -32,7 +37,12 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             binding.sellRowUsd.text = "U$" + trans.usd
             binding.sellRowArs.text = "$" + trans.ars
             binding.sellRowDate.text = trans.date
+        }
 
+        init {
+            itemView.setOnClickListener {
+                Log.d("click", "click")
+            }
         }
 
     }
@@ -73,10 +83,22 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+
+        val currentItem = transList[position]
+
         when (getItemViewType(position)) {
-            0 -> (holder as SellItem).bind(transList[position])
-            1 -> (holder as BuyItem).bind(transList[position])
+            0 -> (holder as SellItem).bind(currentItem)
+            1 -> (holder as BuyItem).bind(currentItem)
             else -> holder as EmptyList
+        }
+
+        holder.itemView.setOnClickListener {
+            if (getItemViewType(position) == 0){
+                Log.d("click","click")
+            }
+            else {
+                Log.d("click", "click")
+            }
         }
 
     }
