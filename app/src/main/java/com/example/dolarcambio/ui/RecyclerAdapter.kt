@@ -17,14 +17,18 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     var transList = mutableListOf<Transaction>()
 
+    fun setList(list: MutableList<Transaction>){
+        transList = list
+    }
 
-    inner class EmptyList(val binding: RowEmptylistBinding ) : RecyclerView.ViewHolder(binding.root){
+
+    inner class EmptyList(val binding: RowEmptylistBinding) : RecyclerView.ViewHolder(binding.root) {
 
     }
 
-    inner class SellItem(val binding: RowSellBinding): RecyclerView.ViewHolder(binding.root){
+    inner class SellItem(val binding: RowSellBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(trans: Transaction){
+        fun bind(trans: Transaction) {
             binding.sellRowUsd.text = trans.usd
             binding.sellRowArs.text = trans.ars
             binding.sellRowDate.text = trans.date
@@ -33,9 +37,9 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     }
 
-    inner class BuyItem(val binding: RowBuyBinding): RecyclerView.ViewHolder(binding.root){
+    inner class BuyItem(val binding: RowBuyBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(trans: Transaction){
+        fun bind(trans: Transaction) {
             binding.buyRowUsd.text = trans.usd
             binding.buyRowArs.text = trans.ars
             binding.buyRowDate.text = trans.date
@@ -44,10 +48,9 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
 
-
     override fun getItemViewType(position: Int): Int {
 
-        when(transList[position].type){
+        when (transList[position].type) {
             0 -> return SELL_ROW
             1 -> return BUY_ROW
             else -> return EMPTY_ROW
@@ -57,10 +60,12 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
-        val sellInflater = RowSellBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val sellInflater =
+            RowSellBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         val buyInflater = RowBuyBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        val emptyInflater = RowEmptylistBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        when(viewType){
+        val emptyInflater =
+            RowEmptylistBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        when (viewType) {
             SELL_ROW -> return SellItem(sellInflater)
             BUY_ROW -> return BuyItem(buyInflater)
             else -> return EmptyList(emptyInflater)
@@ -70,7 +75,7 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        when(getItemViewType(position)){
+        when (getItemViewType(position)) {
             0 -> (holder as SellItem).bind(transList[position])
             1 -> (holder as BuyItem).bind(transList[position])
             else -> holder as EmptyList
