@@ -64,10 +64,14 @@ class RecyclerAdapter(private val onClick: OnClickRowListener) : RecyclerView.Ad
 
     override fun getItemViewType(position: Int): Int {
 
-        when (transList[position].type) {
-            0 -> return SELL_ROW
-            1 -> return BUY_ROW
-            else -> return EMPTY_ROW
+        if(transList.size == 0){
+            return EMPTY_ROW
+        }else {
+            when (transList[position].type) {
+                0 -> return SELL_ROW
+                1 -> return BUY_ROW
+                else -> return EMPTY_ROW
+        }
         }
     }
 
@@ -87,21 +91,24 @@ class RecyclerAdapter(private val onClick: OnClickRowListener) : RecyclerView.Ad
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 
-        val currentItem = transList[position]
 
         when (getItemViewType(position)) {
-            0 -> (holder as SellItem).bind(currentItem)
-            1 -> (holder as BuyItem).bind(currentItem)
+            0 -> (holder as SellItem).bind(transList[position])
+            1 -> (holder as BuyItem).bind(transList[position])
             else -> (holder as EmptyList).bindEmpty()
         }
 
         holder.itemView.setOnClickListener {
-            onClick.onClickRow(currentItem)
+            onClick.onClickRow(transList[position])
         }
 
     }
 
     override fun getItemCount(): Int {
-        return transList.size
+        if (transList.size == 0){
+            return 1
+        } else{
+            return transList.size
+        }
     }
 }
