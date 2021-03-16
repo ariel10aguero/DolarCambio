@@ -27,6 +27,13 @@ class SwipeDelete(val adapter: RecyclerAdapter, val context: Context) : ItemTouc
         return false
     }
 
+    override fun getSwipeDirs(
+        recyclerView: RecyclerView,
+        viewHolder: RecyclerView.ViewHolder
+    ): Int {
+        if(viewHolder is RecyclerAdapter.EmptyList) return 0
+        return super.getSwipeDirs(recyclerView, viewHolder)
+    }
 
     override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
 
