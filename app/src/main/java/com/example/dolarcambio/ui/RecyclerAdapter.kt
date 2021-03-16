@@ -27,7 +27,11 @@ class RecyclerAdapter(private val onClick: OnClickRowListener) : RecyclerView.Ad
         fun onClickRow(trans: Transaction)
     }
 
-    inner class EmptyList(binding: RowEmptylistBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class EmptyList(val binding: RowEmptylistBinding) : RecyclerView.ViewHolder(binding.root) {
+
+        fun bindEmpty(){
+            binding.textView3.text = "Esta vacio"
+        }
 
     }
 
@@ -88,7 +92,7 @@ class RecyclerAdapter(private val onClick: OnClickRowListener) : RecyclerView.Ad
         when (getItemViewType(position)) {
             0 -> (holder as SellItem).bind(currentItem)
             1 -> (holder as BuyItem).bind(currentItem)
-            else -> holder as EmptyList
+            else -> (holder as EmptyList).bindEmpty()
         }
 
         holder.itemView.setOnClickListener {
