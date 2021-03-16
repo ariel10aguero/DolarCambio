@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.DatePicker
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.dolarcambio.CalendarUtils
 import com.example.dolarcambio.R
 import com.example.dolarcambio.closeKeyboard
@@ -20,6 +21,7 @@ class SellFragment : Fragment(), DatePickerDialog.OnDateSetListener {
     private var _binding: FragmentSellBinding? = null
     private val binding get() = _binding!!
     private val calendarUtils = CalendarUtils()
+    private val args by navArgs<SellFragmentArgs>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,18 +41,8 @@ class SellFragment : Fragment(), DatePickerDialog.OnDateSetListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.backArrowSell.setOnClickListener {
-            closeKeyboard(it)
-            findNavController().navigate(R.id.action_sellFragment_to_chooseFragment)
-        }
-
-        binding.sellDateInput.text = calendarUtils.setBtnDate()
-        binding.sellDateInput.setOnClickListener {
-            DatePickerDialog(requireContext(),this, calendarUtils.year, calendarUtils.month, calendarUtils.day).show()
-        }
-        binding.sellSaveBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_sellFragment_to_homeFragment)
-        }
+        setButtonsAndCalendar()
+        navArgsBinding()
     }
 
     override fun onDestroyView() {
@@ -66,4 +58,30 @@ class SellFragment : Fragment(), DatePickerDialog.OnDateSetListener {
 
         binding.sellDateInput.text = "$dayOfMonth/$realMonth/$year"
     }
+
+    private fun setButtonsAndCalendar(){
+        binding.backArrowSell.setOnClickListener {
+            closeKeyboard(it)
+            findNavController().navigate(R.id.action_sellFragment_to_chooseFragment)
+        }
+
+        binding.sellDateInput.text = calendarUtils.setBtnDate()
+        binding.sellDateInput.setOnClickListener {
+            DatePickerDialog(requireContext(),this, calendarUtils.year, calendarUtils.month, calendarUtils.day).show()
+        }
+        binding.sellSaveBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_sellFragment_to_homeFragment)
+        }
+
+    }
+
+    private fun navArgsBinding(){
+        if(args.sellArgs != null){
+            binding.sellUsdInput.setText(args.sellArgs?.usd)
+            binding.sellArsInput.setText(args.sellArgs?.ars)
+            binding.sellDateInput.text = args.sellArgs?.date
+        }
+    }
+
+
 }
