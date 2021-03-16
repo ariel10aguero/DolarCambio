@@ -3,7 +3,6 @@ package com.example.dolarcambio.ui
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dolarcambio.data.Transaction
 import com.example.dolarcambio.databinding.RowBuyBinding
@@ -19,59 +18,44 @@ class RecyclerAdapter(private val onClick: OnClickRowListener) : RecyclerView.Ad
 
     var transList = mutableListOf<Transaction>()
 
-    fun setList(list: MutableList<Transaction>){
+    fun setList(list: MutableList<Transaction>) {
         transList = list
     }
 
-    interface OnClickRowListener{
+    interface OnClickRowListener {
         fun onClickRow(trans: Transaction)
     }
 
     inner class EmptyList(val binding: RowEmptylistBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bindEmpty(){
-            binding.textView3.text = "Esta vacio"
-        }
-
     }
-
     inner class SellItem(val binding: RowSellBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(trans: Transaction) {
-            binding.sellRowUsd.text = "U$" + trans.usd
-            binding.sellRowArs.text = "$" + trans.ars
+            binding.sellRowUsd.text = ("U$" + trans.usd)
+            binding.sellRowArs.text = ("$" + trans.ars)
             binding.sellRowDate.text = trans.date
         }
-
-        init {
-            itemView.setOnClickListener {
-                Log.d("click", "click")
-            }
-        }
-
     }
-
     inner class BuyItem(val binding: RowBuyBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(trans: Transaction) {
-            binding.buyRowUsd.text = "U$" + trans.usd
-            binding.buyRowArs.text = "$" + trans.ars
+            binding.buyRowUsd.text = ("U$" + trans.usd)
+            binding.buyRowArs.text = ("$" + trans.ars)
             binding.buyRowDate.text = trans.date
         }
-
     }
-
 
     override fun getItemViewType(position: Int): Int {
 
-        if(transList.size == 0){
+        if (transList.isEmpty()) {
             return EMPTY_ROW
-        }else {
+        } else {
             when (transList[position].type) {
                 0 -> return SELL_ROW
                 1 -> return BUY_ROW
                 else -> return EMPTY_ROW
-        }
+            }
         }
     }
 
@@ -80,35 +64,35 @@ class RecyclerAdapter(private val onClick: OnClickRowListener) : RecyclerView.Ad
         val sellInflater = RowSellBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         val buyInflater = RowBuyBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         val emptyInflater = RowEmptylistBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+
         when (viewType) {
             SELL_ROW -> return SellItem(sellInflater)
             BUY_ROW -> return BuyItem(buyInflater)
             else -> return EmptyList(emptyInflater)
-
         }
 
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 
-
         when (getItemViewType(position)) {
             0 -> (holder as SellItem).bind(transList[position])
             1 -> (holder as BuyItem).bind(transList[position])
-            else -> (holder as EmptyList).bindEmpty()
+            else -> (holder as EmptyList)
         }
 
         holder.itemView.setOnClickListener {
-            onClick.onClickRow(transList[position])
+            if (transList.isNotEmpty()) {
+                onClick.onClickRow(transList[position])
+            }
         }
-
     }
 
     override fun getItemCount(): Int {
-        if (transList.size == 0){
-            return 1
-        } else{
-            return transList.size
+            if (transList.isEmpty()) {
+                return 1
+            } else {
+                return transList.size
+            }
         }
-    }
 }
