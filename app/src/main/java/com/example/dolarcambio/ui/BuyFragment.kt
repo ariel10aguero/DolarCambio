@@ -39,20 +39,7 @@ class BuyFragment : Fragment(), DatePickerDialog.OnDateSetListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-        binding.backArrowBuy.setOnClickListener {
-            closeKeyboard(it)
-            findNavController().navigate(R.id.action_buyFragment_to_chooseFragment)
-        }
-
-        binding.buyDateInput.text = calendarUtils.setBtnDate()
-        binding.buyDateInput.setOnClickListener {
-            DatePickerDialog(requireContext(),this, calendarUtils.year, calendarUtils.month, calendarUtils.day).show()
-        }
-        binding.buySaveBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_buyFragment_to_homeFragment)
-        }
-
+        setButtonsAndCalendar()
         navArgsBinding()
     }
 
@@ -71,7 +58,24 @@ class BuyFragment : Fragment(), DatePickerDialog.OnDateSetListener {
 
     }
 
-    fun navArgsBinding() {
+    private fun setButtonsAndCalendar(){
+
+        binding.backArrowBuy.setOnClickListener {
+            closeKeyboard(it)
+            findNavController().navigate(R.id.action_buyFragment_to_chooseFragment)
+        }
+
+        binding.buyDateInput.text = calendarUtils.setBtnDate()
+        binding.buyDateInput.setOnClickListener {
+            DatePickerDialog(requireContext(),this, calendarUtils.year, calendarUtils.month, calendarUtils.day).show()
+        }
+        binding.buySaveBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_buyFragment_to_homeFragment)
+        }
+
+    }
+
+    private fun navArgsBinding() {
         if (args.buyArgs != null) {
             binding.buyUsdInput.setText(args.buyArgs?.usd)
             binding.buyArsInput.setText(args.buyArgs?.ars)
