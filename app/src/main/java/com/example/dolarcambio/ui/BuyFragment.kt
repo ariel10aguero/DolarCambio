@@ -7,8 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.DatePicker
-import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.dolarcambio.CalendarUtils
 import com.example.dolarcambio.R
 import com.example.dolarcambio.closeKeyboard
@@ -19,6 +19,7 @@ class BuyFragment : Fragment(), DatePickerDialog.OnDateSetListener {
     private var _binding: FragmentBuyBinding? = null
     private val binding get() = _binding!!
     private val calendarUtils = CalendarUtils()
+    private val args by navArgs<BuyFragmentArgs>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,6 +53,7 @@ class BuyFragment : Fragment(), DatePickerDialog.OnDateSetListener {
             findNavController().navigate(R.id.action_buyFragment_to_homeFragment)
         }
 
+        navArgsBinding()
     }
 
     override fun onDestroyView() {
@@ -68,4 +70,14 @@ class BuyFragment : Fragment(), DatePickerDialog.OnDateSetListener {
         binding.buyDateInput.text = "$dayOfMonth/$realMonth/$year"
 
     }
+
+    fun navArgsBinding() {
+        if (args.buyArgs != null) {
+            binding.buyUsdInput.setText(args.buyArgs?.usd)
+            binding.buyArsInput.setText(args.buyArgs?.ars)
+            binding.buyDateInput.text = args.buyArgs?.date
+        }
+    }
+
+
 }
