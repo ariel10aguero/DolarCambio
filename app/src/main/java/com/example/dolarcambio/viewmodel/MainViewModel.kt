@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 
 class MainViewModel(private val repo: Repository) : ViewModel() {
 
-    val readAllData: LiveData<List<Transaction>>
+    val readAllData: LiveData<MutableList<Transaction>>
 
     init {
        readAllData = repo.getAllTransactions()

@@ -6,7 +6,7 @@ import com.example.dolarcambio.data.local.LocalDataSource
 
 class RepoImplement(private val dataSource: LocalDataSource): Repository {
 
-    override fun getAllTransactions(): LiveData<List<Transaction>> {
+    override fun getAllTransactions(): LiveData<MutableList<Transaction>> {
        return dataSource.getAllTransactions()
     }
 

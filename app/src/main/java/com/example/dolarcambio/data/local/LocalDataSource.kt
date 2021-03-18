@@ -5,7 +5,7 @@ import com.example.dolarcambio.data.Transaction
 
 class LocalDataSource(private val db: TransDatabase) {
 
-    fun getAllTransactions(): LiveData<List<Transaction>> {
+    fun getAllTransactions(): LiveData<MutableList<Transaction>> {
         return db.transDao().getAllTransactions()
     }
 

@@ -9,7 +9,7 @@ import com.example.dolarcambio.data.Transaction
 interface TransDao {
 
     @Query("SELECT * FROM transaction_table")
-    fun getAllTransactions(): LiveData<List<Transaction>>
+    fun getAllTransactions(): LiveData<MutableList<Transaction>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun saveTransaction(transaction: Transaction)
