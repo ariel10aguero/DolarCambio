@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -94,7 +95,7 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
         _binding = null
     }
 
-    fun setUpSpinner() {
+    private fun setUpSpinner() {
         val spinner = binding.spinnerHome
         val spinnerAdapter = ArrayAdapter.createFromResource(
             requireContext(),
@@ -126,7 +127,7 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
 
     }
 
-    fun setUpButtons(){
+    private fun setUpButtons(){
 
         binding.floatingActionButton.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_chooseFragment)
@@ -144,11 +145,20 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
 
     }
 
-    fun setUpRecycerView(){
+    private fun setUpRecycerView(){
 
         binding.recyclerView.adapter = recyclerAdapter
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
     }
+
+    private fun setUpDbObserver(){
+        viewModel.readAllData.observe(this, Observer {
+            recyclerAdapter.setList(it)
+        })
+    }
+
+
+
 
     override fun onClickRow(trans: Transaction) {
 
