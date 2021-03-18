@@ -21,4 +21,12 @@ class MainViewModel(private val repo: Repository) : ViewModel() {
             repo.saveTransaction(transaction)
         }
     }
+
+    fun deleteTransaction(transaction: Transaction){
+        viewModelScope.launch(Dispatchers.IO) {
+            repo.deleteTransaction(transaction)
+        }
+    }
+
+
 }

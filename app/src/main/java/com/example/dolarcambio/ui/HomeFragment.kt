@@ -62,28 +62,6 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
 
         ItemTouchHelper(SwipeDelete(recyclerAdapter,requireContext())).attachToRecyclerView(binding.recyclerView)
 
-//        fakeDb = mutableListOf<Transaction>()
-//        fakeDb.add(Transaction(0,0,"149","15000","15/4/2021"))
-//        fakeDb.add(Transaction(1,0,"149","15000","15/4/2021"))
-//        fakeDb.add(Transaction(2,1,"149","15000","15/4/2021"))
-//        fakeDb.add(Transaction(3,0,"149","15000","15/4/2021"))
-//        fakeDb.add(Transaction(4,1,"149","15000","15/4/2021"))
-//        fakeDb.add(Transaction(5,0,"149","15000","15/4/2021"))
-//        fakeDb.add(Transaction(6,1,"150","170000","15/4/2021"))
-//        fakeDb.add(Transaction(7,0,"1500","315000","15/4/2021"))
-//        fakeDb.add(Transaction(8,1,"149","15000","15/4/2021"))
-//
-//        fakeDbSell = fakeDb.filter { trans:  Transaction -> trans.type == 0 } as MutableList<Transaction>
-//        fakeDbBuy = fakeDb.filter { trans:  Transaction -> trans.type == 1 } as MutableList<Transaction>
-
-//        recyclerAdapter.setList(fakeDb)
-
-
-//        val itemTest = Transaction(0, 0, "456","4565", "15/4/2648")
-//        viewModel.saveTransaction(itemTest)
-
-
-
     }
 
     override fun onDestroyView() {
@@ -169,7 +147,6 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
           0 -> findNavController().navigate(sellAction)
           1 -> findNavController().navigate(buyAction)
       }
-
     }
 
 
