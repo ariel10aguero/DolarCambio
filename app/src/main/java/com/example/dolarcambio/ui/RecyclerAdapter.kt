@@ -95,4 +95,8 @@ class RecyclerAdapter(private val onClick: OnClickRowListener) : RecyclerView.Ad
                 return transList.size
             }
         }
+
+    fun getTrans(position: Int): Transaction{
+        return transList[position]
+    }
 }

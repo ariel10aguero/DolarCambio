@@ -60,7 +60,7 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
         setUpRecycerView()
         setUpDbObserver()
 
-        ItemTouchHelper(SwipeDelete(recyclerAdapter,requireContext())).attachToRecyclerView(binding.recyclerView)
+        ItemTouchHelper(SwipeDelete(recyclerAdapter,requireContext(), viewModel)).attachToRecyclerView(binding.recyclerView)
 
     }
 

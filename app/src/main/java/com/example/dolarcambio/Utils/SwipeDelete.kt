@@ -8,9 +8,11 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dolarcambio.R
+import com.example.dolarcambio.ui.HomeFragment
 import com.example.dolarcambio.ui.RecyclerAdapter
+import com.example.dolarcambio.viewmodel.MainViewModel
 
-class SwipeDelete(val adapter: RecyclerAdapter, val context: Context) : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+class SwipeDelete(val adapter: RecyclerAdapter, val context: Context, val viewModel: MainViewModel) : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
 
     private val deleteIcon = ContextCompat.getDrawable(context, R.drawable.ic_delete)
     private val intrinsicWidth = deleteIcon?.intrinsicWidth
@@ -36,6 +38,8 @@ class SwipeDelete(val adapter: RecyclerAdapter, val context: Context) : ItemTouc
     }
 
     override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+
+        viewModel.deleteTransaction(adapter.getTrans(viewHolder.adapterPosition))
 
         adapter.transList.removeAt(viewHolder.adapterPosition)
         adapter.notifyItemRemoved(viewHolder.adapterPosition)
