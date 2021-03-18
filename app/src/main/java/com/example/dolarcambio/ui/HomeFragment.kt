@@ -8,13 +8,19 @@ import androidx.fragment.app.Fragment
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dolarcambio.R
 import com.example.dolarcambio.Utils.SwipeDelete
 import com.example.dolarcambio.data.Transaction
+import com.example.dolarcambio.data.local.LocalDataSource
+import com.example.dolarcambio.data.local.TransDatabase
 import com.example.dolarcambio.databinding.FragmentHomeBinding
+import com.example.dolarcambio.domain.RepoImplement
+import com.example.dolarcambio.viewmodel.MainViewModel
+import com.example.dolarcambio.viewmodel.ViewModelFactory
 
 
 class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
@@ -25,6 +31,10 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
     lateinit var fakeDb: MutableList<Transaction>
     lateinit var fakeDbSell: MutableList<Transaction>
     lateinit var fakeDbBuy: MutableList<Transaction>
+
+    private val viewModel by activityViewModels<MainViewModel>{ViewModelFactory(RepoImplement(
+        LocalDataSource(TransDatabase.getInstance(requireContext().applicationContext))
+    ))}
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,6 +57,8 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+
         setUpSpinner()
         setUpButtons()
         setUpRecycerView()
@@ -68,6 +80,10 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
         fakeDbBuy = fakeDb.filter { trans:  Transaction -> trans.type == 1 } as MutableList<Transaction>
 
         recyclerAdapter.setList(fakeDb)
+
+        val itemTest = Transaction(0, 0, "456","4565", "15/4/2648")
+
+        viewModel.saveTransaction(itemTest)
 
 
 
