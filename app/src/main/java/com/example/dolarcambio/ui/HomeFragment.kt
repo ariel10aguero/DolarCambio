@@ -1,13 +1,10 @@
 package com.example.dolarcambio.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.widget.AdapterView
 import androidx.fragment.app.Fragment
 import android.widget.ArrayAdapter
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -29,9 +26,9 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     lateinit var recyclerAdapter: RecyclerAdapter
-    lateinit var fakeDb: MutableList<Transaction>
-    lateinit var fakeDbSell: MutableList<Transaction>
-    lateinit var fakeDbBuy: MutableList<Transaction>
+    private var dbAllList = mutableListOf<Transaction>()
+    lateinit var dbSellList: MutableList<Transaction>
+    lateinit var dbBuyList: MutableList<Transaction>
 
     private val viewModel by activityViewModels<MainViewModel>{ViewModelFactory(RepoImplement(
         LocalDataSource(TransDatabase.getInstance(requireContext().applicationContext))
@@ -58,8 +55,6 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-
         setUpSpinner()
         setUpButtons()
         setUpRecycerView()
@@ -84,9 +79,8 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
 //        recyclerAdapter.setList(fakeDb)
 
 
-        val itemTest = Transaction(0, 0, "456","4565", "15/4/2648")
-
-        viewModel.saveTransaction(itemTest)
+//        val itemTest = Transaction(0, 0, "456","4565", "15/4/2648")
+//        viewModel.saveTransaction(itemTest)
 
 
 
@@ -116,9 +110,9 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
                 id: Long
             ) {
                 when(position){
-                    0 -> recyclerAdapter.setList(fakeDb)
-                    1 -> recyclerAdapter.setList(fakeDbBuy)
-                    2 -> recyclerAdapter.setList(fakeDbSell)
+                    0 -> recyclerAdapter.setList(dbAllList)
+                    1 -> recyclerAdapter.setList(dbBuyList)
+                    2 -> recyclerAdapter.setList(dbSellList)
                 }
                 recyclerAdapter.notifyDataSetChanged()
             }
@@ -126,7 +120,6 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
         }
-
     }
 
     private fun setUpButtons(){
@@ -155,16 +148,16 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
 
     private fun setUpDbObserver(){
         viewModel.readAllData.observe(viewLifecycleOwner, Observer {dbList ->
-            recyclerAdapter.setList(dbList)
+            dbAllList = dbList
+            dbSellList = dbList.filter { trans:  Transaction -> trans.type == 0 } as MutableList<Transaction>
+            dbBuyList = dbList.filter { trans:  Transaction -> trans.type == 1 } as MutableList<Transaction>
 
-            fakeDb = dbList
-            fakeDbSell = dbList.filter { trans:  Transaction -> trans.type == 0 } as MutableList<Transaction>
-            fakeDbBuy = dbList.filter { trans:  Transaction -> trans.type == 1 } as MutableList<Transaction>
+            recyclerAdapter.setList(dbList)
+            recyclerAdapter.notifyDataSetChanged()
+
 
         })
     }
-
-
 
 
     override fun onClickRow(trans: Transaction) {
