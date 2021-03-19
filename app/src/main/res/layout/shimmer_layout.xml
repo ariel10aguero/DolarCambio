@@ -2,17 +2,32 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
 
 
     <View
         android:id="@+id/blue_background"
         android:layout_width="match_parent"
         android:layout_height="300dp"
+        android:background="@drawable/background_blue_home"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/line_two"
+        android:layout_width="60dp"
+        android:layout_height="10dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/sellOficialNum"
+        app:layout_constraintStart_toStartOf="@+id/sellOficialNum"
+        app:layout_constraintTop_toTopOf="@+id/sellOficialNum" />
+
 
     <View
         android:id="@+id/white_corners"
@@ -24,6 +39,17 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
+
+    <View
+        android:id="@+id/line_one"
+        android:layout_width="60dp"
+        android:layout_height="10dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/buyOficialNum"
+        app:layout_constraintStart_toStartOf="@+id/buyOficialNum"
+        app:layout_constraintTop_toTopOf="@+id/buyOficialNum" />
 
     <TextView
         android:id="@+id/dolarOficialTitle"
@@ -47,8 +73,7 @@
         android:layout_marginEnd="110dp"
         android:layout_marginRight="110dp"
         android:fontFamily="@font/intertmedium"
-        android:text="$150,52"
-        android:background="@color/white"
+        android:text="$"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/dolarOficialTitle"
@@ -67,10 +92,11 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/buyOficialNum"
         app:layout_constraintStart_toStartOf="@+id/dolarOficialTitle" />
 
+
     <TextView
         android:id="@+id/compraOficial"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="44dp"
+        android:layout_height="15dp"
         android:layout_marginTop="3dp"
         android:fontFamily="@font/intertmedium"
         android:text="COMPRA"
@@ -82,16 +108,17 @@
 
     <TextView
         android:id="@+id/ventaOficial"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="44dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="3dp"
         android:fontFamily="@font/intertmedium"
-        android:text="VENTA"
+        android:text="VENTA "
         android:textColor="@color/white"
         android:textSize="10sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/compraOficial"
         app:layout_constraintEnd_toEndOf="@+id/sellOficialNum"
         app:layout_constraintHorizontal_bias="0.58"
-        app:layout_constraintStart_toStartOf="@+id/sellOficialNum" />
+        app:layout_constraintStart_toStartOf="@+id/sellOficialNum"
+        app:layout_constraintTop_toBottomOf="@+id/sellOficialNum" />
 
     <TextView
         android:id="@+id/dolarBlueTitle"
