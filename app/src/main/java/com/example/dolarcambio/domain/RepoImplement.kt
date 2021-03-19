@@ -1,8 +1,10 @@
 package com.example.dolarcambio.domain
 
 import androidx.lifecycle.LiveData
+import com.example.dolarcambio.data.DolarApi
 import com.example.dolarcambio.data.Transaction
 import com.example.dolarcambio.data.local.LocalDataSource
+import retrofit2.Response
 
 class RepoImplement(private val dataSource: LocalDataSource): Repository {
 
@@ -16,5 +18,13 @@ class RepoImplement(private val dataSource: LocalDataSource): Repository {
 
     override suspend fun deleteTransaction(transaction: Transaction) {
         dataSource.deleteTransaction(transaction)
+    }
+
+    override suspend fun getDolarOficial(): Response<DolarApi> {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun getDolarBlue(): Response<DolarApi> {
+        TODO("Not yet implemented")
     }
 }
