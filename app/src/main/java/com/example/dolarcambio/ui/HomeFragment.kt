@@ -66,6 +66,8 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
         setUpDbObserver()
         getDolarApi()
 
+        binding.shimmer.startShimmer()
+
         ItemTouchHelper(SwipeDelete(recyclerAdapter,requireContext(), viewModel)).attachToRecyclerView(binding.recyclerView)
 
 
@@ -149,7 +151,8 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
             getDolarOficial()
             getDolarBlue()
 
-            dolarOficial.observe(viewLifecycleOwner, Observer { response ->
+            dolarOficial.observe(viewLifecycleOwner, Observer
+            { response ->
                 if (response.isSuccessful) {
                     binding.apply {
                         buyOficialNum.text = ("$" + response.body()?.compra)
@@ -159,13 +162,18 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
                         shimmer.visibility = View.GONE
                         viewsVisibility.showViews()
                     }
-                } else {
-                    if (!response.isSuccessful) {
-                        Toast.makeText(requireContext(), "Error al cargar los datos", Toast.LENGTH_SHORT).show()
-                    }
                 }
             })
 
+            dolarBlue.observe(viewLifecycleOwner, Observer { response ->
+                if(response.isSuccessful){
+                    binding.apply {
+                        buyBlueNum.text = ("$" + response.body()?.compra)
+                        sellBlueNum.text = ("$" + response.body()?.venta)
+                    }
+                }
+
+            })
         }
 
     }
@@ -182,17 +190,12 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
     }
 
     override fun onResume() {
-        viewsVisibility.hideViews()
-        binding.shimmer.startShimmer()
-        binding.shimmer.visibility = View.VISIBLE
         super.onResume()
 
     }
 
 
     override fun onPause() {
-        binding.shimmer.stopShimmer()
-        binding.shimmer.visibility = View.GONE
         super.onPause()
     }
 }
