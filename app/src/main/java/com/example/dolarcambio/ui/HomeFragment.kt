@@ -66,6 +66,32 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
         ItemTouchHelper(SwipeDelete(recyclerAdapter,requireContext(), viewModel)).attachToRecyclerView(binding.recyclerView)
 
 
+        binding.dolarOficialTitle.setOnClickListener {
+            binding.shimmer.startShimmer()
+            binding.shimmer.visibility = View.VISIBLE
+            binding.buyBlueNum.visibility = View.INVISIBLE
+            binding.buyOficialNum.visibility = View.INVISIBLE
+            binding.sellBlueNum.visibility = View.INVISIBLE
+            binding.sellOficialNum.visibility = View.INVISIBLE
+            binding.compraBlue.visibility = View.INVISIBLE
+            binding.compraOficial.visibility = View.INVISIBLE
+            binding.ventaBlue.visibility = View.INVISIBLE
+            binding.ventaOficial.visibility = View.INVISIBLE
+        }
+
+        binding.dolarBlueTitle.setOnClickListener {
+            binding.buyBlueNum.visibility = View.VISIBLE
+            binding.buyOficialNum.visibility = View.VISIBLE
+            binding.sellBlueNum.visibility = View.VISIBLE
+            binding.sellOficialNum.visibility = View.VISIBLE
+            binding.compraBlue.visibility = View.VISIBLE
+            binding.compraOficial.visibility = View.VISIBLE
+            binding.ventaBlue.visibility = View.VISIBLE
+            binding.ventaOficial.visibility = View.VISIBLE
+            binding.dateLastUpdate.visibility = View.VISIBLE
+            binding.shimmer.stopShimmer()
+            binding.shimmer.visibility = View.INVISIBLE
+        }
 
     }
 
