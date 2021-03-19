@@ -182,9 +182,11 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
     }
 
     override fun onResume() {
-        super.onResume()
+        viewsVisibility.hideViews()
         binding.shimmer.startShimmer()
         binding.shimmer.visibility = View.VISIBLE
+        super.onResume()
+
     }
 
 
