@@ -12,13 +12,12 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dolarcambio.R
-import com.example.dolarcambio.Utils.SwipeDelete
+import com.example.dolarcambio.utils.SwipeDelete
 import com.example.dolarcambio.data.Transaction
 import com.example.dolarcambio.data.local.LocalDataSource
 import com.example.dolarcambio.data.local.TransDatabase
 import com.example.dolarcambio.data.remote.RemoteDataSource
 import com.example.dolarcambio.data.remote.RetrofitInstance
-import com.example.dolarcambio.data.remote.WebService
 import com.example.dolarcambio.databinding.FragmentHomeBinding
 import com.example.dolarcambio.domain.RepoImplement
 import com.example.dolarcambio.viewmodel.MainViewModel
@@ -62,16 +61,11 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
         setUpButtons()
         setUpRecycerView()
         setUpDbObserver()
+        getDolarOficial()
 
         ItemTouchHelper(SwipeDelete(recyclerAdapter,requireContext(), viewModel)).attachToRecyclerView(binding.recyclerView)
 
-        viewModel.getDolarOficial()
 
-        viewModel.dolarOficial.observe(viewLifecycleOwner, Observer {
-            if (it.isSuccessful){
-                Log.d("respuesta", "${it.body()}")
-            }
-        })
 
     }
 
@@ -146,6 +140,17 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
 
 
         })
+    }
+
+    private fun getDolarOficial(){
+        viewModel.getDolarOficial()
+
+        viewModel.dolarOficial.observe(viewLifecycleOwner, Observer {response ->
+            if (response.isSuccessful){
+                Log.d("respuesta", "${response.body()}")
+            }
+        })
+
     }
 
     override fun onClickRow(trans: Transaction) {

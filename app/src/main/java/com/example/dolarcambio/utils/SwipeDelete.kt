@@ -1,4 +1,4 @@
-package com.example.dolarcambio.Utils
+package com.example.dolarcambio.utils
 
 import android.content.Context
 import android.graphics.Canvas
@@ -8,7 +8,6 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dolarcambio.R
-import com.example.dolarcambio.ui.HomeFragment
 import com.example.dolarcambio.ui.RecyclerAdapter
 import com.example.dolarcambio.viewmodel.MainViewModel
 
