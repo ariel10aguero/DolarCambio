@@ -29,7 +29,6 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
     private var dbAllList = mutableListOf<Transaction>()
     lateinit var dbSellList: MutableList<Transaction>
     lateinit var dbBuyList: MutableList<Transaction>
-
     private val viewModel by activityViewModels<MainViewModel>{ViewModelFactory(RepoImplement(
         LocalDataSource(TransDatabase.getInstance(requireContext().applicationContext))
     ))}
