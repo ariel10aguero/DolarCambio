@@ -164,5 +164,8 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
       }
     }
 
-
+    override fun onResume() {
+        super.onResume()
+        binding.shimmer.startShimmer()
+    }
 }
