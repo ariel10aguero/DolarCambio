@@ -10,6 +10,6 @@ class RemoteDataSource(val webService: WebService) {
     }
 
     suspend fun getDolarBlue(): Response<DolarApi>{
-        return webService.getDolarOficial()
+        return webService.getDolarBlue()
     }
 }

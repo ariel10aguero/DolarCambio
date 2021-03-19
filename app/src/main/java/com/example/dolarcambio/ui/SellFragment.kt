@@ -18,6 +18,8 @@ import com.example.dolarcambio.closeKeyboard
 import com.example.dolarcambio.data.Transaction
 import com.example.dolarcambio.data.local.LocalDataSource
 import com.example.dolarcambio.data.local.TransDatabase
+import com.example.dolarcambio.data.remote.RemoteDataSource
+import com.example.dolarcambio.data.remote.RetrofitInstance
 import com.example.dolarcambio.databinding.FragmentBuyBinding
 import com.example.dolarcambio.databinding.FragmentSellBinding
 import com.example.dolarcambio.domain.RepoImplement
@@ -32,13 +34,10 @@ class SellFragment : Fragment(), DatePickerDialog.OnDateSetListener {
     private val calendarUtils = CalendarUtils()
     private val args by navArgs<SellFragmentArgs>()
 
-    private val viewModel by activityViewModels<MainViewModel>{
-        ViewModelFactory(
-            RepoImplement(
-                LocalDataSource(TransDatabase.getInstance(requireContext().applicationContext))
-            )
-        )
-    }
+    private val viewModel by activityViewModels<MainViewModel>{ViewModelFactory(RepoImplement(
+        LocalDataSource(TransDatabase.getInstance(requireContext().applicationContext)), RemoteDataSource(
+            RetrofitInstance.webService)
+    ))}
 
 
 

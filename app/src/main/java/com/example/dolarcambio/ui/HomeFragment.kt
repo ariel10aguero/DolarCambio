@@ -1,6 +1,7 @@
 package com.example.dolarcambio.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.AdapterView
 import androidx.fragment.app.Fragment
@@ -15,6 +16,9 @@ import com.example.dolarcambio.Utils.SwipeDelete
 import com.example.dolarcambio.data.Transaction
 import com.example.dolarcambio.data.local.LocalDataSource
 import com.example.dolarcambio.data.local.TransDatabase
+import com.example.dolarcambio.data.remote.RemoteDataSource
+import com.example.dolarcambio.data.remote.RetrofitInstance
+import com.example.dolarcambio.data.remote.WebService
 import com.example.dolarcambio.databinding.FragmentHomeBinding
 import com.example.dolarcambio.domain.RepoImplement
 import com.example.dolarcambio.viewmodel.MainViewModel
@@ -30,7 +34,7 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
     lateinit var dbSellList: MutableList<Transaction>
     lateinit var dbBuyList: MutableList<Transaction>
     private val viewModel by activityViewModels<MainViewModel>{ViewModelFactory(RepoImplement(
-        LocalDataSource(TransDatabase.getInstance(requireContext().applicationContext))
+        LocalDataSource(TransDatabase.getInstance(requireContext().applicationContext)), RemoteDataSource(RetrofitInstance.webService)
     ))}
 
 
@@ -60,6 +64,14 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
         setUpDbObserver()
 
         ItemTouchHelper(SwipeDelete(recyclerAdapter,requireContext(), viewModel)).attachToRecyclerView(binding.recyclerView)
+
+        viewModel.getDolarOficial()
+
+        viewModel.dolarOficial.observe(viewLifecycleOwner, Observer {
+            if (it.isSuccessful){
+                Log.d("respuesta", "${it.body()}")
+            }
+        })
 
     }
 

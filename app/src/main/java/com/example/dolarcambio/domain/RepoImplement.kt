@@ -4,9 +4,10 @@ import androidx.lifecycle.LiveData
 import com.example.dolarcambio.data.DolarApi
 import com.example.dolarcambio.data.Transaction
 import com.example.dolarcambio.data.local.LocalDataSource
+import com.example.dolarcambio.data.remote.RemoteDataSource
 import retrofit2.Response
 
-class RepoImplement(private val dataSource: LocalDataSource): Repository {
+class RepoImplement(private val dataSource: LocalDataSource, private val remoteDataSource: RemoteDataSource): Repository {
 
     override fun getAllTransactions(): LiveData<MutableList<Transaction>> {
        return dataSource.getAllTransactions()
@@ -21,10 +22,10 @@ class RepoImplement(private val dataSource: LocalDataSource): Repository {
     }
 
     override suspend fun getDolarOficial(): Response<DolarApi> {
-        TODO("Not yet implemented")
+        return remoteDataSource.getDolarOficial()
     }
 
     override suspend fun getDolarBlue(): Response<DolarApi> {
-        TODO("Not yet implemented")
+        return remoteDataSource.getDolarBlue()
     }
 }
