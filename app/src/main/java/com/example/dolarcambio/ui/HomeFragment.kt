@@ -136,7 +136,6 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
         })
     }
 
-
     override fun onClickRow(trans: Transaction) {
 
         val sellAction = HomeFragmentDirections.actionHomeFragmentToSellFragment(trans)
