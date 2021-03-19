@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <View
         android:id="@+id/blue_background"
         android:layout_width="match_parent"
@@ -31,23 +32,23 @@
         android:layout_marginTop="28dp"
         android:fontFamily="@font/interlight"
         android:text="Dólar Oficial"
+        android:visibility="invisible"
         android:textColor="@color/white"
         android:textSize="24sp"
-        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/buyOficialNum"
-        android:layout_width="76dp"
+        android:layout_width="77dp"
         android:layout_height="28dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="110dp"
         android:layout_marginRight="110dp"
         android:fontFamily="@font/intertmedium"
-        android:text=""
-        android:background="@color/shimmer_gray"
+        android:text="$150,52"
+        android:background="@color/white"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/dolarOficialTitle"
@@ -55,13 +56,12 @@
 
     <TextView
         android:id="@+id/sellOficialNum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="77dp"
+        android:layout_height="28dp"
         android:layout_marginStart="110dp"
         android:layout_marginLeft="110dp"
         android:fontFamily="@font/intertmedium"
-        android:text="$177,24"
-        android:background="@color/shimmer_gray"
+        android:text="$"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/buyOficialNum"
@@ -76,7 +76,6 @@
         android:text="COMPRA"
         android:textColor="@color/my_gray"
         android:textSize="10sp"
-        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="@+id/buyOficialNum"
         app:layout_constraintStart_toStartOf="@+id/buyOficialNum"
         app:layout_constraintTop_toBottomOf="@+id/buyOficialNum" />
@@ -87,9 +86,8 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/intertmedium"
         android:text="VENTA"
-        android:textColor="@color/my_gray"
+        android:textColor="@color/white"
         android:textSize="10sp"
-        android:visibility="invisible"
         app:layout_constraintBaseline_toBaselineOf="@+id/compraOficial"
         app:layout_constraintEnd_toEndOf="@+id/sellOficialNum"
         app:layout_constraintHorizontal_bias="0.58"
@@ -111,8 +109,8 @@
 
     <TextView
         android:id="@+id/buyBlueNum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="77dp"
+        android:layout_height="28dp"
         android:layout_marginTop="12dp"
         android:fontFamily="@font/intertmedium"
         android:text="$150,52"
@@ -150,7 +148,7 @@
     <TextView
         android:id="@+id/ventaBlue"
         android:layout_width="wrap_content"
-        android:layout_height="15dp"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/intertmedium"
         android:text="VENTA"
         android:textColor="@color/my_gray"
@@ -161,8 +159,8 @@
 
     <TextView
         android:id="@+id/dateLastUpdate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="53dp"
+        android:layout_height="15dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginBottom="16dp"
