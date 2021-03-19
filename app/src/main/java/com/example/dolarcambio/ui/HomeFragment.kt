@@ -20,6 +20,7 @@ import com.example.dolarcambio.data.remote.RemoteDataSource
 import com.example.dolarcambio.data.remote.RetrofitInstance
 import com.example.dolarcambio.databinding.FragmentHomeBinding
 import com.example.dolarcambio.domain.RepoImplement
+import com.example.dolarcambio.utils.ViewsVisibility
 import com.example.dolarcambio.viewmodel.MainViewModel
 import com.example.dolarcambio.viewmodel.ViewModelFactory
 
@@ -32,6 +33,7 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
     private var dbAllList = mutableListOf<Transaction>()
     lateinit var dbSellList: MutableList<Transaction>
     lateinit var dbBuyList: MutableList<Transaction>
+    lateinit var viewsVisibility: ViewsVisibility
     private val viewModel by activityViewModels<MainViewModel>{ViewModelFactory(RepoImplement(
         LocalDataSource(TransDatabase.getInstance(requireContext().applicationContext)), RemoteDataSource(RetrofitInstance.webService)
     ))}
@@ -50,6 +52,7 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val view = binding.root
+        viewsVisibility = ViewsVisibility(binding)
 
         return view
     }
@@ -61,37 +64,10 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
         setUpButtons()
         setUpRecycerView()
         setUpDbObserver()
-        getDolarOficial()
+        getDolarApi()
 
         ItemTouchHelper(SwipeDelete(recyclerAdapter,requireContext(), viewModel)).attachToRecyclerView(binding.recyclerView)
 
-
-        binding.dolarOficialTitle.setOnClickListener {
-            binding.shimmer.startShimmer()
-            binding.shimmer.visibility = View.VISIBLE
-            binding.buyBlueNum.visibility = View.INVISIBLE
-            binding.buyOficialNum.visibility = View.INVISIBLE
-            binding.sellBlueNum.visibility = View.INVISIBLE
-            binding.sellOficialNum.visibility = View.INVISIBLE
-            binding.compraBlue.visibility = View.INVISIBLE
-            binding.compraOficial.visibility = View.INVISIBLE
-            binding.ventaBlue.visibility = View.INVISIBLE
-            binding.ventaOficial.visibility = View.INVISIBLE
-        }
-
-        binding.dolarBlueTitle.setOnClickListener {
-            binding.buyBlueNum.visibility = View.VISIBLE
-            binding.buyOficialNum.visibility = View.VISIBLE
-            binding.sellBlueNum.visibility = View.VISIBLE
-            binding.sellOficialNum.visibility = View.VISIBLE
-            binding.compraBlue.visibility = View.VISIBLE
-            binding.compraOficial.visibility = View.VISIBLE
-            binding.ventaBlue.visibility = View.VISIBLE
-            binding.ventaOficial.visibility = View.VISIBLE
-            binding.dateLastUpdate.visibility = View.VISIBLE
-            binding.shimmer.stopShimmer()
-            binding.shimmer.visibility = View.INVISIBLE
-        }
 
     }
 
@@ -168,14 +144,24 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
         })
     }
 
-    private fun getDolarOficial(){
-        viewModel.getDolarOficial()
+    private fun getDolarApi() {
+        viewModel.apply {
+            getDolarOficial()
+            getDolarBlue()
 
-        viewModel.dolarOficial.observe(viewLifecycleOwner, Observer {response ->
-            if (response.isSuccessful){
-                Log.d("respuesta", "${response.body()}")
-            }
-        })
+            dolarOficial.observe(viewLifecycleOwner, Observer { response ->
+                if (response.isSuccessful) {
+                    binding.apply {
+                        buyOficialNum.text = ("$" + response.body()?.compra)
+                        sellOficialNum.text = ("$" + response.body()?.venta)
+                        shimmer.stopShimmer()
+                        shimmer.visibility = View.GONE
+                        viewsVisibility.hideViews()
+                    }
+                }
+            })
+
+        }
 
     }
 
@@ -193,5 +179,11 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
     override fun onResume() {
         super.onResume()
         binding.shimmer.startShimmer()
+        binding.shimmer.visibility = View.VISIBLE
+    }
+
+    override fun onPause() {
+        binding.shimmer.stopShimmer()
+        super.onPause()
     }
 }
