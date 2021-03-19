@@ -1,11 +1,11 @@
 package com.example.dolarcambio.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.widget.AdapterView
 import androidx.fragment.app.Fragment
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -154,9 +154,14 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
                     binding.apply {
                         buyOficialNum.text = ("$" + response.body()?.compra)
                         sellOficialNum.text = ("$" + response.body()?.venta)
+                        dateLastUpdate.text = response.body()?.fecha
                         shimmer.stopShimmer()
                         shimmer.visibility = View.GONE
-                        viewsVisibility.hideViews()
+                        viewsVisibility.showViews()
+                    }
+                } else {
+                    if (!response.isSuccessful) {
+                        Toast.makeText(requireContext(), "Error al cargar los datos", Toast.LENGTH_SHORT).show()
                     }
                 }
             })
@@ -182,8 +187,10 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
         binding.shimmer.visibility = View.VISIBLE
     }
 
+
     override fun onPause() {
         binding.shimmer.stopShimmer()
+        binding.shimmer.visibility = View.GONE
         super.onPause()
     }
 }

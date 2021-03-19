@@ -35,13 +35,25 @@ class MainViewModel(private val repo: Repository) : ViewModel() {
 
     fun getDolarOficial(){
         viewModelScope.launch {
-            dolarOficial.value = repo.getDolarOficial()
+            try {
+                dolarOficial.value = repo.getDolarOficial()
+            }
+            catch (e: Exception){
+
+            }
+
         }
     }
 
     fun getDolarBlue(){
         viewModelScope.launch {
-            dolarBlue.value = repo.getDolarBlue()
+            try {
+               dolarBlue.value = repo.getDolarBlue()
+            }
+            catch (e: Exception){
+
+            }
+
         }
     }
 
