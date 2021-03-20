@@ -16,7 +16,6 @@ import com.example.dolarcambio.data.remote.RemoteDataSource
 import com.example.dolarcambio.data.remote.RetrofitInstance
 import com.example.dolarcambio.databinding.FragmentCalculatorBinding
 import com.example.dolarcambio.domain.RepoImplement
-import com.example.dolarcambio.parseDate
 import com.example.dolarcambio.viewmodel.MainViewModel
 import com.example.dolarcambio.viewmodel.ViewModelFactory
 import java.text.DecimalFormat
@@ -73,7 +72,6 @@ class CalculatorFragment : Fragment() {
         )
         spinnerConverterAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
         spinner.adapter = spinnerConverterAdapter
-
         spinner.onItemSelectedListener = object :AdapterView.OnItemSelectedListener{
             override fun onItemSelected(
                 parent: AdapterView<*>?,
@@ -105,24 +103,22 @@ class CalculatorFragment : Fragment() {
         binding.backArrowConverter.setOnClickListener{
             closeKeyboard(it)
             findNavController().navigate(R.id.action_calculatorFragment_to_homeFragment)
-
         }
-
-
     }
 
     fun currencyConverter(type: Int, apiBlueData: Float, apiOficialData: Float, userInput: String) : String {
         var result: Float = 0F
+        var userDecimal = DecimalFormat(".00").format(userInput.toFloat())
 
         when(type){
-            0 -> result = apiBlueData * userInput.toFloat()
-            1 -> result = apiOficialData * userInput.toFloat()
-            2 -> result = userInput.toFloat() / apiBlueData
-            3 -> result = userInput.toFloat() / apiOficialData
+            0 -> result = apiBlueData * userDecimal.toFloat()
+            1 -> result = apiOficialData * userDecimal.toFloat()
+            2 -> result = userDecimal.toFloat() / apiBlueData
+            3 -> result = userDecimal.toFloat() / apiOficialData
         }
         val currencyResult = DecimalFormat(".00").format(result)
 
-        return currencyResult.toString()
+        return "$${currencyResult}"
     }
 
     private fun getDolarApi() {
@@ -134,7 +130,6 @@ class CalculatorFragment : Fragment() {
             { response ->
                 if (response.isSuccessful) {
                     apiOficialData = response.body()?.venta.toString().toFloat()
-
                 }
             })
 
