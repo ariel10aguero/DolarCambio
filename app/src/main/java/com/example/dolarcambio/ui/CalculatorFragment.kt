@@ -97,6 +97,8 @@ class CalculatorFragment : Fragment() {
     private fun setUpButtons(){
 
         binding.convertBtn.setOnClickListener{
+            val userInput = binding.convertNumInput.editableText.toString()
+            binding.convertResult.text = currencyConverter(type, apiBlueData, apiOficialData, userInput )
             binding.convertResult.visibility = View.VISIBLE
         }
 
