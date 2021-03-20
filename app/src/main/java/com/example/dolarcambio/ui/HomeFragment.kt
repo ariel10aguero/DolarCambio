@@ -2,6 +2,8 @@ package com.example.dolarcambio.ui
 
 import android.os.Build
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.*
 import android.widget.AdapterView
 import androidx.fragment.app.Fragment
@@ -26,7 +28,10 @@ import com.example.dolarcambio.parseDate
 import com.example.dolarcambio.utils.ViewsVisibility
 import com.example.dolarcambio.viewmodel.MainViewModel
 import com.example.dolarcambio.viewmodel.ViewModelFactory
+import kotlinx.coroutines.delay
 import java.time.format.DateTimeFormatter
+import java.util.*
+import kotlin.concurrent.schedule
 
 
 class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
@@ -169,9 +174,7 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
                         buyOficialNum.text = ("$" + response.body()?.compra)
                         sellOficialNum.text = ("$" + response.body()?.venta)
                         dateLastUpdate.text =  parseDate(response.body()?.fecha)
-                        shimmer.stopShimmer()
-                        shimmer.visibility = View.GONE
-                        viewsVisibility.showViews()
+
                     }
                 }
             })
@@ -181,6 +184,13 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
                     binding.apply {
                         buyBlueNum.text = ("$" + response.body()?.compra)
                         sellBlueNum.text = ("$" + response.body()?.venta)
+                        Handler(Looper.getMainLooper()).postDelayed({
+                            shimmer.stopShimmer()
+                            shimmer.visibility = View.GONE
+                            viewsVisibility.showViews()
+                        }, 500)
+
+
                     }
                 }
             })

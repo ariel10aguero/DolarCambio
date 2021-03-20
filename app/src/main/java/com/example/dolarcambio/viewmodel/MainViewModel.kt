@@ -7,7 +7,9 @@ import androidx.lifecycle.viewModelScope
 import com.example.dolarcambio.data.DolarApi
 import com.example.dolarcambio.data.Transaction
 import com.example.dolarcambio.domain.Repository
+import kotlinx.coroutines.Delay
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
@@ -55,6 +57,12 @@ class MainViewModel(private val repo: Repository) : ViewModel() {
             catch (e: Exception){
             }
 
+        }
+    }
+
+    suspend fun delayYop(){
+        viewModelScope.launch {
+            delay(5000)
         }
     }
 
