@@ -119,9 +119,9 @@ class CalculatorFragment : Fragment() {
             2 -> result = userDecimal.toFloat() / apiBlueData
             3 -> result = userDecimal.toFloat() / apiOficialData
         }
-        val currencyResult = DecimalFormat(".00").format(result)
+        val currencyResult = DecimalFormat("$###,###.###").format(result)
 
-        return "$${currencyResult}"
+        return "${currencyResult}"
     }
 
     private fun getDolarApi() {
