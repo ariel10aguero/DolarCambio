@@ -111,7 +111,7 @@ class BuyFragment : Fragment(), DatePickerDialog.OnDateSetListener {
             viewModel.saveTransaction(buyTransaction)
             findNavController().navigate(R.id.action_buyFragment_to_homeFragment)
         } else {
-            Toast.makeText(requireContext(), "Completá todo los campos", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Completá todos los campos", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -125,7 +125,7 @@ class BuyFragment : Fragment(), DatePickerDialog.OnDateSetListener {
             viewModel.saveTransaction(buyTransaction!!)
             findNavController().navigate(R.id.action_buyFragment_to_homeFragment)
         } else {
-            Toast.makeText(requireContext(), "Completá todo los campos", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Completá todos los campos", Toast.LENGTH_SHORT).show()
         }
 
     }
