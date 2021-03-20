@@ -172,10 +172,8 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
                         sellBlueNum.text = ("$" + response.body()?.venta)
                     }
                 }
-
             })
         }
-
     }
 
     override fun onClickRow(trans: Transaction) {
