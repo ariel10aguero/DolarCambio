@@ -5,6 +5,7 @@ import android.view.*
 import android.widget.AdapterView
 import androidx.fragment.app.Fragment
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -94,12 +95,14 @@ class CalculatorFragment : Fragment() {
 
     private fun setUpButtons(){
 
-        binding.convertBtn.setOnClickListener{
+        binding.convertBtn.setOnClickListener {
             val userInput = binding.convertNumInput.editableText.toString()
-            binding.convertResult.text = currencyConverter(type, apiBlueData, apiOficialData, userInput )
-            binding.convertResult.visibility = View.VISIBLE
-        }
+            if (userInput.isNotBlank()) {
+                binding.convertResult.text = currencyConverter(type, apiBlueData, apiOficialData, userInput)
+                binding.convertResult.visibility = View.VISIBLE
+            } else Toast.makeText(requireContext(), "Completá el campo de importe", Toast.LENGTH_SHORT).show()
 
+        }
         binding.backArrowConverter.setOnClickListener{
             closeKeyboard(it)
             findNavController().navigate(R.id.action_calculatorFragment_to_homeFragment)
