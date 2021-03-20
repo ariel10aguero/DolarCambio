@@ -20,10 +20,10 @@
         <action
             android:id="@+id/action_homeFragment_to_chooseFragment"
             app:destination="@id/chooseFragment"
-            app:enterAnim="@anim/from_bottom"
-            app:exitAnim="@anim/to_top"
-            app:popEnterAnim="@anim/from_top"
-            app:popExitAnim="@anim/to_bottom" />
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@android:anim/fade_out" />
         <action
             android:id="@+id/action_homeFragment_to_buyFragment"
             app:destination="@id/buyFragment" />
