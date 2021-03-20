@@ -1,11 +1,13 @@
 package com.example.dolarcambio.ui
 
+import android.os.Build
 import android.os.Bundle
 import android.view.*
 import android.widget.AdapterView
 import androidx.fragment.app.Fragment
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -20,9 +22,11 @@ import com.example.dolarcambio.data.remote.RemoteDataSource
 import com.example.dolarcambio.data.remote.RetrofitInstance
 import com.example.dolarcambio.databinding.FragmentHomeBinding
 import com.example.dolarcambio.domain.RepoImplement
+import com.example.dolarcambio.parseDate
 import com.example.dolarcambio.utils.ViewsVisibility
 import com.example.dolarcambio.viewmodel.MainViewModel
 import com.example.dolarcambio.viewmodel.ViewModelFactory
+import java.time.format.DateTimeFormatter
 
 
 class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
@@ -34,9 +38,14 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
     lateinit var dbSellList: MutableList<Transaction>
     lateinit var dbBuyList: MutableList<Transaction>
     lateinit var viewsVisibility: ViewsVisibility
-    private val viewModel by activityViewModels<MainViewModel>{ViewModelFactory(RepoImplement(
-        LocalDataSource(TransDatabase.getInstance(requireContext().applicationContext)), RemoteDataSource(RetrofitInstance.webService)
-    ))}
+    private val viewModel by activityViewModels<MainViewModel> {
+        ViewModelFactory(
+            RepoImplement(
+                LocalDataSource(TransDatabase.getInstance(requireContext().applicationContext)),
+                RemoteDataSource(RetrofitInstance.webService)
+            )
+        )
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -70,7 +79,6 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
         binding.shimmer.startShimmer()
 
         ItemTouchHelper(SwipeDelete(recyclerAdapter,requireContext(), viewModel)).attachToRecyclerView(binding.recyclerView)
-
 
     }
 
@@ -147,6 +155,7 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
         })
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun getDolarApi() {
         viewModel.apply {
             getDolarOficial()
@@ -158,7 +167,7 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
                     binding.apply {
                         buyOficialNum.text = ("$" + response.body()?.compra)
                         sellOficialNum.text = ("$" + response.body()?.venta)
-                        dateLastUpdate.text = response.body()?.fecha
+                        dateLastUpdate.text =  parseDate(response.body()?.fecha)
                         shimmer.stopShimmer()
                         shimmer.visibility = View.GONE
                         viewsVisibility.showViews()
