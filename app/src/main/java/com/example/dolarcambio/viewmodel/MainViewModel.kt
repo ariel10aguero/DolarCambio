@@ -16,6 +16,7 @@ class MainViewModel(private val repo: Repository) : ViewModel() {
     val readAllData: LiveData<MutableList<Transaction>>
     val dolarOficial: MutableLiveData<Response<DolarApi>> = MutableLiveData()
     val dolarBlue: MutableLiveData<Response<DolarApi>> = MutableLiveData()
+    val status: MutableLiveData<Boolean> = MutableLiveData()
 
     init {
        readAllData = repo.getAllTransactions()
@@ -37,9 +38,10 @@ class MainViewModel(private val repo: Repository) : ViewModel() {
         viewModelScope.launch {
             try {
                 dolarOficial.value = repo.getDolarOficial()
+                status.value = true
             }
             catch (e: Exception){
-
+                status.value = false
             }
 
         }
@@ -51,7 +53,6 @@ class MainViewModel(private val repo: Repository) : ViewModel() {
                dolarBlue.value = repo.getDolarBlue()
             }
             catch (e: Exception){
-
             }
 
         }
