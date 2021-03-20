@@ -119,7 +119,7 @@ class CalculatorFragment : Fragment() {
             2 -> result = userDecimal.toFloat() / apiBlueData
             3 -> result = userDecimal.toFloat() / apiOficialData
         }
-        val currencyResult = DecimalFormat("$###,###.###").format(result)
+        val currencyResult = DecimalFormat("$###,###.##").format(result)
 
         return "${currencyResult}"
     }
