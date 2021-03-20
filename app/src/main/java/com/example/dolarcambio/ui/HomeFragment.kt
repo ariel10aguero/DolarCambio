@@ -180,7 +180,7 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
     private fun statusToast(){
         viewModel.status.observe(viewLifecycleOwner, Observer { status ->
             if (!status) {
-                Toast.makeText(requireContext(), "Compruebe su conexión a internet", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Compruebe su conexión a internet", Toast.LENGTH_LONG).show()
             }
         })
     }
