@@ -66,6 +66,7 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
         return view
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
