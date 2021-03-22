@@ -17,6 +17,7 @@ import com.example.dolarcambio.data.remote.RemoteDataSource
 import com.example.dolarcambio.data.remote.RetrofitInstance
 import com.example.dolarcambio.databinding.FragmentCalculatorBinding
 import com.example.dolarcambio.domain.RepoImplement
+import com.example.dolarcambio.formatCalculatorCurrency
 import com.example.dolarcambio.viewmodel.MainViewModel
 import com.example.dolarcambio.viewmodel.ViewModelFactory
 import java.text.DecimalFormat
@@ -119,9 +120,9 @@ class CalculatorFragment : Fragment() {
             2 -> result = userDecimal.toFloat() / apiBlueData
             3 -> result = userDecimal.toFloat() / apiOficialData
         }
-        val currencyResult = DecimalFormat("$###,###.##").format(result)
+        val currencyResult = formatCalculatorCurrency(result)
 
-        return "${currencyResult}"
+        return currencyResult
     }
 
     private fun getDolarApi() {
