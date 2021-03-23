@@ -139,6 +139,8 @@ class SellFragment : Fragment(), DatePickerDialog.OnDateSetListener {
         return !(usd.isBlank() || ars.isBlank() || date.isBlank())
     }
 
+    //
+
 
 
 

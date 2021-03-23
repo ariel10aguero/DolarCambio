@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DolarCambio</string>
+    <string name="app_name">Dolar Cambio</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
@@ -10,9 +10,9 @@
     </string-array>
 
     <string-array name="converter_type">
-        <item>Dolar Blue -> Peso</item>
-        <item>Dolar Oficial -> Peso </item>
-        <item>Peso -> Dolar Blue</item>
-        <item>Peso -> Dolar Oficial</item>
+        <item>Dólar Blue -> Peso</item>
+        <item>Dólar Oficial -> Peso </item>
+        <item>Peso -> Dólar Blue</item>
+        <item>Peso -> Dólar Oficial</item>
     </string-array>
 </resources>
