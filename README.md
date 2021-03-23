@@ -30,7 +30,7 @@ Android app to display the current price of the two main dollar exchange rates i
 
 # License
 
-IT License
+MIT License
 
 Copyright (c) 2021 Alejandro Agüero
 
