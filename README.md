@@ -6,7 +6,7 @@ Android app to display the current price of the two main dollar exchange rates i
     <img style="float:right;" src="https://github.com/ariel10aguero/DolarCambio/blob/master/screenshots/app_logo.png?raw=true" width="200 height="200" alt="Brook"/>
 </p>
 
-**This proyect implement:**
+**This project implement:**
 
 - Room
 - Retrofit
