@@ -112,13 +112,12 @@ class CalculatorFragment : Fragment() {
 
     fun currencyConverter(type: Int, apiBlueData: Float, apiOficialData: Float, userInput: String) : String {
         var result: Float = 0F
-        var userDecimal = DecimalFormat(".00").format(userInput.toFloat())
 
         when(type){
-            0 -> result = apiBlueData * userDecimal.toFloat()
-            1 -> result = apiOficialData * userDecimal.toFloat()
-            2 -> result = userDecimal.toFloat() / apiBlueData
-            3 -> result = userDecimal.toFloat() / apiOficialData
+            0 -> result = apiBlueData * userInput.toFloat()
+            1 -> result = apiOficialData * userInput.toFloat()
+            2 -> result = userInput.toFloat() / apiBlueData
+            3 -> result = userInput.toFloat() / apiOficialData
         }
         val currencyResult = formatCalculatorCurrency(result)
 
