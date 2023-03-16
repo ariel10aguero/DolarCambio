@@ -164,36 +164,44 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
     @RequiresApi(Build.VERSION_CODES.O)
     private fun getDolarApi() {
         viewModel.apply {
-            getDolarOficial()
-            getDolarBlue()
+//            getDolarOficial()
+//            getDolarBlue()
+            getDolarSi()
 
-            dolarOficial.observe(viewLifecycleOwner, Observer
+            dolarSi.observe(viewLifecycleOwner, Observer
             { response ->
                 if (response.isSuccessful) {
-                    binding.apply {
-                        buyOficialNum.text = ("$" + response.body()?.compra)
-                        sellOficialNum.text = ("$" + response.body()?.venta)
-                        dateLastUpdate.text =  parseDate(response.body()?.fecha)
-
-                    }
+                    println("aaa ${response.body()}")
                 }
             })
 
-            dolarBlue.observe(viewLifecycleOwner, Observer { response ->
-                if(response.isSuccessful){
-                    binding.apply {
-                        buyBlueNum.text = ("$" + response.body()?.compra)
-                        sellBlueNum.text = ("$" + response.body()?.venta)
-                        Handler(Looper.getMainLooper()).postDelayed({
-                            shimmer.stopShimmer()
-                            shimmer.visibility = View.GONE
-                            viewsVisibility.showViews()
-                        }, 500)
-
-
-                    }
-                }
-            })
+//            dolarOficial.observe(viewLifecycleOwner, Observer
+//            { response ->
+//                if (response.isSuccessful) {
+//                    binding.apply {
+//                        buyOficialNum.text = ("$" + response.body()?.compra)
+//                        sellOficialNum.text = ("$" + response.body()?.venta)
+//                        dateLastUpdate.text =  parseDate(response.body()?.fecha)
+//
+//                    }
+//                }
+//            })
+//
+//            dolarBlue.observe(viewLifecycleOwner, Observer { response ->
+//                if(response.isSuccessful){
+//                    binding.apply {
+//                        buyBlueNum.text = ("$" + response.body()?.compra)
+//                        sellBlueNum.text = ("$" + response.body()?.venta)
+//                        Handler(Looper.getMainLooper()).postDelayed({
+//                            shimmer.stopShimmer()
+//                            shimmer.visibility = View.GONE
+//                            viewsVisibility.showViews()
+//                        }, 500)
+//
+//
+//                    }
+//                }
+//            })
         }
     }
 

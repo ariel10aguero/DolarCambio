@@ -2,6 +2,7 @@ package com.example.dolarcambio.domain
 
 import androidx.lifecycle.LiveData
 import com.example.dolarcambio.data.DolarApi
+import com.example.dolarcambio.data.DolarSi
 import com.example.dolarcambio.data.Transaction
 import com.example.dolarcambio.data.local.LocalDataSource
 import com.example.dolarcambio.data.remote.RemoteDataSource
@@ -21,11 +22,15 @@ class RepoImplement(private val dataSource: LocalDataSource, private val remoteD
         dataSource.deleteTransaction(transaction)
     }
 
-    override suspend fun getDolarOficial(): Response<DolarApi> {
-        return remoteDataSource.getDolarOficial()
-    }
+//    override suspend fun getDolarOficial(): Response<DolarApi> {
+//        return remoteDataSource.getDolarOficial()
+//    }
+//
+//    override suspend fun getDolarBlue(): Response<DolarApi> {
+//        return remoteDataSource.getDolarBlue()
+//    }
 
-    override suspend fun getDolarBlue(): Response<DolarApi> {
-        return remoteDataSource.getDolarBlue()
+    override suspend fun getDolarSi(): Response<DolarSi> {
+        return remoteDataSource.getDolarSi()
     }
 }

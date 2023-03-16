@@ -126,8 +126,16 @@ class CalculatorFragment : Fragment() {
 
     private fun getDolarApi() {
         viewModel.apply {
-            getDolarOficial()
-            getDolarBlue()
+//            getDolarOficial()
+//            getDolarBlue()
+            getDolarSi()
+
+            dolarSi.observe(viewLifecycleOwner, Observer
+            { response ->
+                if (response.isSuccessful) {
+                    println("aaaa ${response.body()}")
+                }
+            })
 
             dolarOficial.observe(viewLifecycleOwner, Observer
             { response ->
@@ -136,12 +144,12 @@ class CalculatorFragment : Fragment() {
                 }
             })
 
-            dolarBlue.observe(viewLifecycleOwner, Observer { response ->
-                if(response.isSuccessful){
-                    apiBlueData = response.body()?.venta.toString().toFloat()
-
-                }
-            })
+//            dolarBlue.observe(viewLifecycleOwner, Observer { response ->
+//                if(response.isSuccessful){
+//                    apiBlueData = response.body()?.venta.toString().toFloat()
+//
+//                }
+//            })
         }
     }
 
