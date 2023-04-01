@@ -20,9 +20,9 @@
         <action
             android:id="@+id/action_homeFragment_to_chooseFragment"
             app:destination="@id/chooseFragment"
-            app:enterAnim="@anim/fragment_fade_enter"
+            app:enterAnim="@anim/from_left"
             app:exitAnim="@android:anim/fade_out"
-            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popEnterAnim="@anim/from_right"
             app:popExitAnim="@android:anim/fade_out" />
         <action
             android:id="@+id/action_homeFragment_to_buyFragment"
