@@ -1,5 +1,7 @@
 package com.example.dolarcambio.ui
 
+import android.content.Context
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -137,9 +139,30 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
                     findNavController().navigate(R.id.action_homeFragment_to_calculatorFragment)
                     true
                 }
+                R.id.share_app -> {
+                    share(binding.root.context)
+                    true
+                }
                 else -> false
             }
         }
+
+    }
+
+    private fun share(context: Context) {
+            val sharingIntent = Intent(Intent.ACTION_SEND).apply {
+                type = "text/plain"
+                putExtra(Intent.EXTRA_TEXT,
+                    "https://play.google.com/store/apps/details?id=com.aleaguero.dolarcambio&pli=1"
+                )
+            }
+
+            context.startActivity(
+                Intent.createChooser(
+                    sharingIntent,
+                    "Comparte la app Dolar Cambio"
+                )
+            )
 
     }
 

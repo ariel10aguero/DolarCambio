@@ -4,10 +4,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/share_app"
+        android:icon="@drawable/ic_share"
+        app:showAsAction="always"
+        android:title="convert"/>
+
+    <item
         android:id="@+id/convert_calculator"
         android:icon="@drawable/ic_convert"
         app:showAsAction="always"
         android:title="convert"/>
+
 
 
 </menu>
