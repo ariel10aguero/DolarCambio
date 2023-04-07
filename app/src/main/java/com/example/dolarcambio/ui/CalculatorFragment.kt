@@ -1,6 +1,8 @@
 package com.example.dolarcambio.ui
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.*
 import android.widget.AdapterView
 import androidx.fragment.app.Fragment
@@ -21,6 +23,8 @@ import com.example.dolarcambio.formatCalculatorCurrency
 import com.example.dolarcambio.viewmodel.MainViewModel
 import com.example.dolarcambio.viewmodel.ViewModelFactory
 import java.text.DecimalFormat
+import java.text.NumberFormat
+import java.util.*
 
 
 class CalculatorFragment : Fragment() {
@@ -58,6 +62,7 @@ class CalculatorFragment : Fragment() {
         setUpSpinner()
         setUpButtons()
         getDolarApi()
+        formatUserInput()
     }
 
     override fun onDestroyView() {
@@ -94,6 +99,41 @@ class CalculatorFragment : Fragment() {
 
     }
 
+    private fun formatUserInput() {
+        binding.apply {
+            var isBackspacePressed = false
+
+            convertNumInput.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(
+                    s: CharSequence,
+                    start: Int,
+                    count: Int,
+                    after: Int
+                ) {
+                    isBackspacePressed = count > after
+                }
+
+                override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                    // Do nothing
+                }
+
+                override fun afterTextChanged(s: Editable) {
+                    if (!isBackspacePressed) {
+                        convertNumInput.removeTextChangedListener(this)
+
+                        val formattedNumber = formatNumberWithDot(s.toString())
+                        convertNumInput.setText(formattedNumber)
+                        convertNumInput.setSelection(formattedNumber.length)
+
+                        convertNumInput.addTextChangedListener(this)
+                    }
+                    isBackspacePressed = false
+                }
+            })
+        }
+    }
+
+
     private fun setUpButtons(){
 
         binding.convertBtn.setOnClickListener {
@@ -110,14 +150,27 @@ class CalculatorFragment : Fragment() {
         }
     }
 
+    fun formatNumberWithDot(numberString: String): String {
+        val number = numberString.filter { it.isDigit() }.toLongOrNull()
+        return if (number != null) {
+            val spanishLocale = Locale("es", "ES")
+            val numberFormat = NumberFormat.getNumberInstance(spanishLocale)
+            numberFormat.isGroupingUsed = true
+            numberFormat.maximumFractionDigits = 0
+            numberFormat.format(number)
+        } else {
+            "Invalid input"
+        }
+    }
+
     fun currencyConverter(type: Int, apiBlueData: Float, apiOficialData: Float, userInput: String) : String {
         var result: Float = 0F
-
+        val numInput = userInput.filter { it.isDigit() }.toFloat()
         when(type){
-            0 -> result = apiBlueData * userInput.toFloat()
-            1 -> result = apiOficialData * userInput.toFloat()
-            2 -> result = userInput.toFloat() / apiBlueData
-            3 -> result = userInput.toFloat() / apiOficialData
+            0 -> result = apiBlueData *  numInput
+            1 -> result = apiOficialData * numInput
+            2 -> result = numInput / apiBlueData
+            3 -> result = numInput / apiOficialData
         }
         val currencyResult = formatCalculatorCurrency(result)
 
@@ -126,32 +179,17 @@ class CalculatorFragment : Fragment() {
 
     private fun getDolarApi() {
         viewModel.apply {
-//            getDolarOficial()
-//            getDolarBlue()
             getDolarSi()
 
             dolarSi.observe(viewLifecycleOwner, Observer
             { response ->
                 if (response.isSuccessful) {
-                    println("aaaa ${response.body()}")
+                    val dolarBlue = response.body()?.find { it.casa.nombre == "Dolar Blue" }
+                    val dolarOficial = response.body()?.find { it.casa.nombre == "Dolar Oficial" }
+                    apiBlueData = dolarBlue?.casa?.venta?.replace(",", ".")?.toFloat() ?: 0F
+                    apiOficialData = dolarOficial?.casa?.venta?.replace(",", ".")?.toFloat() ?: 0F
                 }
             })
-
-            dolarOficial.observe(viewLifecycleOwner, Observer
-            { response ->
-                if (response.isSuccessful) {
-                    apiOficialData = response.body()?.venta.toString().toFloat()
-                }
-            })
-
-//            dolarBlue.observe(viewLifecycleOwner, Observer { response ->
-//                if(response.isSuccessful){
-//                    apiBlueData = response.body()?.venta.toString().toFloat()
-//
-//                }
-//            })
         }
     }
-
-
 }

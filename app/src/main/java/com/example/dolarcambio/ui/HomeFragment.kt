@@ -29,6 +29,7 @@ import com.example.dolarcambio.utils.ViewsVisibility
 import com.example.dolarcambio.viewmodel.MainViewModel
 import com.example.dolarcambio.viewmodel.ViewModelFactory
 import kotlinx.coroutines.delay
+import java.text.SimpleDateFormat
 import java.time.format.DateTimeFormatter
 import java.util.*
 import kotlin.concurrent.schedule
@@ -171,7 +172,25 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
             dolarSi.observe(viewLifecycleOwner, Observer
             { response ->
                 if (response.isSuccessful) {
-                    println("aaa ${response.body()}")
+                    val dolarBlue = response.body()?.find { it.casa.nombre == "Dolar Blue" }
+                    val dolarOficial = response.body()?.find { it.casa.nombre == "Dolar Oficial" }
+
+                    binding.apply {
+                        buyOficialNum.text = ("$" + dolarOficial?.casa?.compra)
+                        sellOficialNum.text = ("$" + dolarOficial?.casa?.venta)
+
+                        buyBlueNum.text = ("$" + dolarBlue?.casa?.compra)
+                        sellBlueNum.text = ("$" + dolarBlue?.casa?.venta)
+
+                        dateLastUpdate.text =  getTodayAsFormattedString()
+
+
+                        Handler(Looper.getMainLooper()).postDelayed({
+                            shimmer.stopShimmer()
+                            shimmer.visibility = View.GONE
+                            viewsVisibility.showViews()
+                        }, 500)
+                    }
                 }
             })
 
@@ -203,6 +222,11 @@ class HomeFragment : Fragment(), RecyclerAdapter.OnClickRowListener {
 //                }
 //            })
         }
+    }
+
+    fun getTodayAsFormattedString(): String {
+        val dateFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        return dateFormat.format(Date())
     }
 
     private fun statusToast(){

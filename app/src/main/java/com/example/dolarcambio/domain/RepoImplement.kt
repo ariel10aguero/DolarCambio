@@ -30,7 +30,7 @@ class RepoImplement(private val dataSource: LocalDataSource, private val remoteD
 //        return remoteDataSource.getDolarBlue()
 //    }
 
-    override suspend fun getDolarSi(): Response<DolarSi> {
+    override suspend fun getDolarSi(): Response<List<DolarSi>>{
         return remoteDataSource.getDolarSi()
     }
 }

@@ -14,6 +14,6 @@ interface WebService {
 //    suspend fun getDolarBlue(): Response<DolarApi>
 
     @GET("/api/api.php?type=valoresprincipales")
-    suspend fun getDolarSi(): Response<DolarSi>
+    suspend fun getDolarSi(): Response<List<DolarSi>>
 
 }

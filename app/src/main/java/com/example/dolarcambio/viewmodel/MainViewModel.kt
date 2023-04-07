@@ -19,7 +19,7 @@ class MainViewModel(private val repo: Repository) : ViewModel() {
     val readAllData: LiveData<MutableList<Transaction>>
     val dolarOficial: MutableLiveData<Response<DolarApi>> = MutableLiveData()
     val dolarBlue: MutableLiveData<Response<DolarApi>> = MutableLiveData()
-    val dolarSi: MutableLiveData<Response<DolarSi>> = MutableLiveData()
+    val dolarSi: MutableLiveData<Response<List<DolarSi>>> = MutableLiveData()
     val status: MutableLiveData<Boolean> = MutableLiveData()
 
     init {

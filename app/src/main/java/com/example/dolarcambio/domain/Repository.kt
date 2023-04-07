@@ -13,6 +13,6 @@ interface Repository {
     suspend fun deleteTransaction(transaction: Transaction)
 //    suspend fun getDolarOficial(): Response<DolarApi>
 //    suspend fun getDolarBlue(): Response<DolarApi>
-    suspend fun getDolarSi(): Response<DolarSi>
+    suspend fun getDolarSi(): Response<List<DolarSi>>
 
 }
